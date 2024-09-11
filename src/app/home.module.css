@@ -1,0 +1,199 @@
+/* app/home.module.css */
+.navbar {
+    background-color: #2196F3; /* Blue background */
+    color: white;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Ensure navbar stays on top */
+    justify-content: flex-end;
+  }
+  
+  .navList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navItem {
+    margin-right: 1rem;
+  }
+  
+  .navLink {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease; /* Smooth transition */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .navLink:hover {
+    background-color: #1976D2; /* Darker blue on hover */
+  }
+  
+  .button {
+    background-color: #4CAF50; /* Green for buttons */
+  }
+  
+  .header {
+    background-color: #f44336; /* Red header background */
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 60px; /* Account for navbar height */
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .projectDetails {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .image {
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px; /* Rounded corners */
+  }
+  
+  .section {
+    padding: 2rem;
+  }
+  
+  .features {
+    background-color: #00BCD4; /* Teal background */
+    color: white;
+  }
+  
+  .contact {
+    background-color: #FFC107; /* Amber background */
+    color: black;
+  }
+  
+  .sectionHeading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .para {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .featuresList {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap; /* Wrap items for responsiveness */
+    justify-content: center;
+  }
+  
+  .featureItem {
+    width: 300px;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .featureIcon {
+    /* Add icon styling here */
+  }
+  
+  .featureTitle {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .featureDescription {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  
+  .formInput {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .footer {
+    background-color: #333; /* Dark gray footer */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: relative; /* For absolute positioning of the copyright */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .copyright {
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive Design */
+  
+  @media screen and (max-width: 768px) {
+    .projectDetails {
+      flex-direction: column;
+    }
+  
+    .image {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  
+    .featuresList {
+      flex-direction: column; /* Stack features vertically on smaller screens */
+    }
+  
+    .featureItem {
+      width: 100%;
+    }
+  
+    .contactForm {
+      flex-direction: column;
+    }
+  }
+  
+  /* Additional CSS Styling (Feel free to customize) */
+  
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto; /* Center the content */
+    padding: 1rem;
+  }
+  
+  /* Styling for the container of each section */
+  .section {
+    margin-bottom: 2rem;
+  }
