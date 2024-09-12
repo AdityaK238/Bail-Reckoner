@@ -77,6 +77,10 @@
   .section {
     padding: 2rem;
   }
+
+  .myClass {
+    @apply text-blue-500 bg-gray-100;
+  }
   
   .features {
     background-color: #00BCD4; /* Teal background */
@@ -98,6 +102,8 @@
     margin-bottom: 1rem;
   }
   
+  
+
   .featuresList {
     list-style: none;
     padding: 0;
