@@ -17,9 +17,13 @@ export default function LandingPage() {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#how-it-works">
             How It Works
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#testimonials">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#testimonials\">
             Testimonials
-          </Link>
+          </Link>&nbsp;&nbsp;&nbsp;
+
+          <Link href="/login">Login</Link>
+
+         
         </nav>
       </header>
       <main className="flex-1">
@@ -43,21 +47,21 @@ export default function LandingPage() {
         </section>
         <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12" color="black">Features</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12" style={{color: "black"}}>Features</h2>
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
               <div className="flex flex-col items-center space-y-4 text-center">
                 <BarChart3 className="h-10 w-10 text-primary" />
-                <h3 className="text-xl font-bold">Accurate Calculations</h3>
+                <h3 className="text-xl font-bold" style={{color: "black"}}>Accurate Calculations</h3>
                 <p className="text-gray-500 dark:text-gray-400">Precise bail amount calculations based on the latest legal guidelines.</p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
                 <BookOpen className="h-10 w-10 text-primary" />
-                <h3 className="text-xl font-bold">Legal Database</h3>
+                <h3 className="text-xl font-bold" style={{color: "black"}}>Legal Database</h3>
                 <p className="text-gray-500 dark:text-gray-400">Comprehensive database of Indian bail laws and precedents.</p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
                 <Users className="h-10 w-10 text-primary" />
-                <h3 className="text-xl font-bold">Collaboration Tools</h3>
+                <h3 className="text-xl font-bold" style={{color: "black"}}>Collaboration Tools</h3>
                 <p className="text-gray-500 dark:text-gray-400">Easy sharing and collaboration features for legal teams.</p>
               </div>
             </div>
@@ -70,32 +74,32 @@ export default function LandingPage() {
               <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-white text-2xl font-bold">1</div>
                 <h3 className="text-xl font-bold">Input Case Details</h3>
-                <p className="text-gray-500 dark:text-gray-400">Enter the relevant case information into our user-friendly interface.</p>
+                <p className="text-gray-500 dark:text-gray-400" style={{color: "white"}}>Enter the relevant case information into our user-friendly interface.</p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-white text-2xl font-bold">2</div>
                 <h3 className="text-xl font-bold">Calculate Bail Amount</h3>
-                <p className="text-gray-500 dark:text-gray-400">Our algorithm processes the information and calculates the appropriate bail amount.</p>
+                <p className="text-gray-500 dark:text-gray-400" style={{color: "white"}}>Our algorithm processes the information and calculates the appropriate bail amount.</p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-white text-2xl font-bold">3</div>
                 <h3 className="text-xl font-bold">Generate Report</h3>
-                <p className="text-gray-500 dark:text-gray-400">Receive a detailed report with the calculated bail amount and legal justifications.</p>
+                <p className="text-gray-500 dark:text-gray-400" style={{color: "white"}}>Receive a detailed report with the calculated bail amount and legal justifications.</p>
               </div>
             </div>
           </div>
         </section>
         <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12">Testimonials</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12" style={{color: "black"}}>Testimonials</h2>
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col space-y-4 text-center">
-                <p className="text-xl italic">Indian Bail Reckoner has revolutionized our bail calculation process. Its fast, accurate, and indispensable.</p>
-                <p className="font-semibold">- Priya Sharma, Criminal Lawyer</p>
+                <p className="text-xl italic" style={{color: "black"}}>Indian Bail Reckoner has revolutionized our bail calculation process. Its fast, accurate, and indispensable.</p>
+                <p className="font-semibold" style={{color: "black"}}>- Priya Sharma, Criminal Lawyer</p>
               </div>
               <div className="flex flex-col space-y-4 text-center">
-                <p className="text-xl italic">This tool has saved us countless hours and improved our accuracy. Highly recommended for all legal professionals.</p>
-                <p className="font-semibold">- Rajesh Patel, Legal Consultant</p>
+                <p className="text-xl italic" style={{color: "black"}}>This tool has saved us countless hours and improved our accuracy. Highly recommended for all legal professionals.</p>
+                <p className="font-semibold" style={{color: "black"}}>- Rajesh Patel, Legal Consultant</p>
               </div>
             </div>
           </div>

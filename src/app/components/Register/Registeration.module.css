@@ -1,65 +1,101 @@
 .container {
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: black;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    color: white;
+  height: 450px;
+  width: 350px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: rgba(31, 231, 218, 0.91);
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #fff; 
+  transition: all 0.3s ease; 
+}
+
+.container:hover {
+  box-shadow: 0 0 20px rgba(249, 2, 2, 0.2);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #666; 
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease; 
+}
+
+.input:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7; 
+}
+
+.button {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4CAF50; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+.button:hover {
+  background-color: #3e8e41; 
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 300px;
   }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .label {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
   .input {
-    width: 100%;
-    height: 40px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    height: 30px;
   }
-  
-  .input:focus {
-    border-color: #aaa;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
   .button {
-    width: 100%;
-    height: 40px;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    height: 30px;
   }
-  
-  .button:hover {
-    background-color: #3e8e41;
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 200px;
   }
-  
-  .button:active {
-    background-color: #3e8e41;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  .input {
+    height: 25px;
   }
+  .button {
+    height: 25px;
+  }
+}

@@ -15,7 +15,7 @@ const Registeration = () => {
           id="email"
           onChange={(e) => setEmail(e.target.value)}
           className={styles.input}
-          placeholder="johndoe@example.com"
+          placeholder="Email"
         />
 
         <label className={styles.label} htmlFor="password">

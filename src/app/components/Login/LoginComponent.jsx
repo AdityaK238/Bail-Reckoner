@@ -8,7 +8,7 @@ const LoginComponent = () => {
   return (
     <div className={styles.wrapper}>
       <form>
-        <h1>Login for judge</h1>
+        <h1>Login</h1>
         <div className={styles.inputBox}>
           <input type="text" placeholder="Email" required className={styles.inputArea} onChange={(e) => setEmail(e.target.value)}/>
         </div>
@@ -19,12 +19,7 @@ const LoginComponent = () => {
         </div>
         <button className={styles.btn} type="submit">Login</button>
         <div className="register-link"><br />
-          <p>Dont have an Account? 
-              <br /><br />
-              <a href="/register/judge">Register as Judge</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="/register/prisoner">Register as Prisoner</a>
-          
-          </p>
+          <p>Dont have an Account?</p>
         </div>
       </form>
     </div>
