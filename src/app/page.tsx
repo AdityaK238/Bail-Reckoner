@@ -2,6 +2,7 @@ import { Button } from "@/app/components/ui/button"
 import { Input } from "@/app/components/ui/input"
 import { BarChart3, BookOpen, Scale, Users } from "lucide-react"
 import Link from "next/link"
+
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -11,19 +12,17 @@ export default function LandingPage() {
           <span className="sr-only">Indian Bail Reckoner</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features" style={{ fontSize: 17}}>
             Features
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#how-it-works">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#how-it-works" style={{ fontSize: 17}}>
             How It Works
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#testimonials\">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#testimonials\" style={{ fontSize: 17}}>
             Testimonials
           </Link>&nbsp;&nbsp;&nbsp;
-
-          <Link href="/login">Login</Link>
-
-         
+          <Link href="/bail-overview" style={{ fontSize: 15.5, border: 5}}>Bail Criteria Assessment</Link>
+          <Link href="/login" style={{ fontSize: 15}}>Login</Link>
         </nav>
       </header>
       <main className="flex-1">

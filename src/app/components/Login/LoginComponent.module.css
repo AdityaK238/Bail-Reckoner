@@ -1,7 +1,7 @@
 
 .wrapper{
     width: 420px;
-    background: transparent;
+    background: #222831;
     border: 2px solid rgba(150, 80, 230, 0.2);
     color: white;
     border-radius: 12px;
@@ -54,13 +54,13 @@
     width: 100%;
     height: 45px;
     border: none;
-    background: #00FFFF;
+    background: black;
     outline: none;
     border-radius: 40px;
     box-shadow: 0 0 10px rgb(0,0,0,0.1);
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: white;
     font-weight: 600;
 }
 .wrapper .registerLink{
