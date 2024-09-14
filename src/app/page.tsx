@@ -18,9 +18,11 @@ export default function LandingPage() {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#how-it-works" style={{ fontSize: 17}}>
             How It Works
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#testimonials\" style={{ fontSize: 17}}>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#testimonials" style={{ fontSize: 17}}>
             Testimonials
           </Link>&nbsp;&nbsp;&nbsp;
+          <Link href="/faq">FAQ</Link>
+          <Link href="/marketplace">Marketplace</Link>
           <Link href="/bail-overview" style={{ fontSize: 15.5, border: 5}}>Bail Criteria Assessment</Link>
           <Link href="/login" style={{ fontSize: 15}}>Login</Link>
         </nav>

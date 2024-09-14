@@ -1,7 +1,8 @@
-'use client'
-import React, { useState,useEffect } from 'react';
+'use client';
+import React, { useState } from 'react';
 import styles from "@/app/components/Bail-Calculator/Bail-calculator.module.css";
 import { Bold } from 'lucide-react';
+import { ipcData } from "@/app/components/ipcSections";
 
 
 const BailReckoner = () => {
@@ -14,52 +15,12 @@ const BailReckoner = () => {
   const [familyInJurisdiction, setFamilyInJurisdiction] = useState(false);
   const [employed, setEmployed] = useState(false);
   const [ownsProperty, setOwnsProperty] = useState(false);
-
-  const [ipcSections, setIpcSections] = useState([]); // To store fetched IPC sections
-    const [lt, setLt] = useState('');
-  useEffect(() => {
-    if (lawType === 'IPC') {
-      fetch('http://localhost:3001/apis/sections')
-        .then(response => response.json())
-        .then(sections => {
-          setIpcSections(sections); 
-          console.log(ipcSections);
-          setLt('IPC')
-          // Store fetched sections in state
-          
-        })
-        .catch(error => console.error('Error fetching sections:', error));
-    }
-  }, [lawType]);
-//   useEffect(() => {
-//     const ipcSection = document.getElementById('ipcSection');
-//     const bnsSection = document.getElementById('bnsSection');
-//     const bssSection = document.getElementById('bssSection');
-//     const bsaSection = document.getElementById('bsaSection');
-
-//     ipcSection.style.display = 'none';
-//     bnsSection.style.display = 'none';
-//     bssSection.style.display = 'none';
-//     bsaSection.style.display = 'none';
-
-//     switch (lawType) {
-//       case 'IPC':
-//         ipcSection.style.display = 'block';
-//         break;
-//       case 'BNS':
-//         bnsSection.style.display = 'block';
-//         break;
-//       case 'BSS':
-//         bssSection.style.display = 'block';
-//         break;
-//       case 'BSA':
-//         bsaSection.style.display = 'block';
-//         break;
-//     }
-//   }, [lawType]);
+  const [bailEligibility, setBailEligibility] = useState(null);
+  const ipcSec = ipcData.sections;
 
 
-  
+  const [primarySection, setPrimarySection] = useState('');
+
   const handleLawTypeChange = (event) => {
     setLawType(event.target.value);
   };
@@ -96,41 +57,61 @@ const BailReckoner = () => {
     setOwnsProperty(event.target.checked);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [sectionRes, setSectionRes] = useState(null);
+
   const calculateBailEligibility = () => {
-    // Implement logic to calculate bail eligibility based on input values
-    console.log('Calculating bail eligibility...');
-  };
+    const ipcSections = ipcData.sections;
+    const found = ipcSections.find((section) => section.code === primarySection);
+
+    if (found) {
+      setSectionRes(found);
+    }
+
+    let score = found && found.bailableByDefault ? 100 : 50;
+    score -= parseInt(imprisonmentYears) * 5 + parseInt(imprisonmentMonths) * 0.5;
+    if (flightRisk) score -= 20;
+    if (riskOfInfluencingWitnesses) score -= 20;
+    if (familyInJurisdiction) score += 10;
+    if (employed) score += 10;
+    if (ownsProperty) score += 10;
+
+    const bailEligible = score >= 60;
+
+    // Set the bail eligibility result into state
+    setBailEligibility({ bailEligible, score, section: found });
+  }
 
   return (
-    <div className={styles.container} style={{color: 'black', background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'}}>
-      <h2 className={styles.title} style={{textDecoration: Bold}}>Indian Bail Reckoner</h2>
+    <div className={styles.container} style={{ color: 'black', background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
+      <h2 className={styles.title}><strong>Indian Bail Reckoner</strong></h2>
       <div className={styles.formgroup}>
-        <label htmlFor="lawType" style={{color: 'black'}}>Select Law Type:</label>
+        <label htmlFor="lawType" style={{ color: 'black' }}>Select Law Type:</label>
         <select id="lawType" value={lawType} onChange={handleLawTypeChange}>
           <option value="">Select a law type</option>
-                    <option value="IPC" style={{color: 'black'}}>Indian Penal Code (IPC)</option>
-                    <option value="BNS" style={{color: 'black'}}>Bhartiya Nyaya Sanhita</option>
-                    <option value="BSS" style={{color: 'black'}}>Bhartiya Suraksha Sanhita</option>
-                    <option value="BSA" style={{color: 'black'}}>Bhartiya Saakshya Adhiniyam</option>
+          <option value="IPC" style={{ color: 'black' }}>Indian Penal Code (IPC)</option>
+          <option value="BNS" style={{ color: 'black' }}>Bhartiya Nyaya Sanhita</option>
+          <option value="BSS" style={{ color: 'black' }}>Bhartiya Suraksha Sanhita</option>
+          <option value="BSA" style={{ color: 'black' }}>Bhartiya Saakshya Adhiniyam</option>
         </select>
       </div>
       <div>
-      {lt === 'IPC' && (
-        <div id="ipcSection">
-          <label htmlFor="primarySection">Primary IPC Section:</label>
-          <input list="ipcSections" id="primarySection" name="primarySection" />
-          <select id="ipcSections">
-            {ipcSections.map((section, index) => (
-              <option key={index} value={`${section.code} - ${section.description}`} />
-            ))}
-          </select>
-        </div>
-      )}
+        {lawType === 'IPC' && (
+          <div id="ipcSection">
+            <label htmlFor="primarySection"><strong>Primary IPC Section</strong></label>
+            <select id="primarySection" name="primarySection" value={primarySection} className='w-full' onChange={(e) => { setPrimarySection(e.target.value) }}>
+              {ipcSec.map((section, index) => (
+                <option key={index} value={section.code}>
+                  {section.code} - {section.description}
+                </option>
+              ))}
+            </select>
+            </div> )}
 
-      <div id="bnsSection" style={{ display: 'none' }}>
-        <label htmlFor="bnsOption">BNS Option:</label>
-        <select id="bnsOption">
-          <option value="">Select a BNS section</option>
+        {lawType === 'BNS' && (<div id="bnsSection formgroupCreated">
+          <label htmlFor="bnsOption">BNS Option:</label>
+          <select id="bnsOption" className='w-full'>
+            <option value="">Select a BNS section</option>
           <option value="BNS1">1 - Short title, extent and commencement</option>
           <option value="BNS2">2 - Definitions</option>
           <option value="BNS3">3 - Punishment of offences committed within India</option>
@@ -146,12 +127,12 @@ const BailReckoner = () => {
           <option value="BNS13">13 - Abetment of offence within and beyond India</option>
           <option value="BNS14">14 - Punishment of abetment if the act abetted is committed in consequence and where no express provision is made for its punishment</option>
           <option value="BNS15">15 - Abetment of offence punishable with death or imprisonment for life</option>
-        </select>
-      </div>
+          </select>
+        </div>)}
 
-      <div id="bssSection" style={{ display: 'none' }}>
+        {lawType === 'BSS' && (<div id="bssSection formgroupCreated">
         <label htmlFor="bssOption">BSS Option:</label>
-        <select id="bssOption">
+        <select id="bssOption" className='w-full'>
           <option value="">Select a BSS section</option>
           <option value="BSS1">1 - Short title, extent and commencement</option>
           <option value="BSS2">2 - Definitions</option>
@@ -168,12 +149,12 @@ const BailReckoner = () => {
           <option value="BSS13">13 - Pursuit of offenders into other jurisdictions</option>
           <option value="BSS14">14 - Search of place entered by person sought to be arrested</option>
           <option value="BSS15">15 - Procedure where gate of place to be searched is closed</option>
-        </select>
-      </div>
+          </select>
+      </div>)};
 
-      <div id="bsaSection" style={{ display: 'none' }}>
+      {lawType === 'BSA' && (<div id="bsaSection formgroupCreated">
         <label htmlFor="bsaOption">BSA Option:</label>
-        <select id="bsaOption">
+        <select id="bsaOption" className='w-full'>
           <option value="">Select a BSA section</option>
           <option value="BSA1">1 - Short title, extent and commencement</option>
           <option value="BSA2">2 - Definitions</option>
@@ -191,14 +172,14 @@ const BailReckoner = () => {
           <option value="BSA14">14 - Admissions defined</option>
           <option value="BSA15">15 - Admission by party to proceeding or his agent</option>
         </select>
-      </div>
-    </div>
+      </div>)}
+        </div>
       <div className={styles.formgroup}>
-        <label htmlFor="specialStatute" style={{color: 'black'}}>Special Statute (if applicable):</label>
+        <label htmlFor="specialStatute" style={{ color: 'black' }}>Special Statute (if applicable):</label>
         <select id="specialStatute" value={specialStatute} onChange={handleSpecialStatuteChange}>
-          <option value="" style={{color: 'black'}}>None</option>
-          <option value="cyberCrimes" style={{color: 'black'}}>Cyber Crimes</option>
-                    <option value="scstCrimes" style={{color: 'black'}}>Crimes against SC and ST</option>
+          <option value="" style={{ color: 'black' }}>None</option>
+          <option value="cyberCrimes" style={{ color: 'black' }}>Cyber Crimes</option>
+          <option value="scstCrimes" style={{color: 'black'}}>Crimes against SC and ST</option>
                     <option value="womenCrimes" style={{color: 'black'}}>Crimes against Women</option>
                     <option value="childrenCrimes" style={{color: 'black'}}>Crimes against Children</option>
                     <option value="stateOffenses" style={{color: 'black'}}>Offenses against the State</option>
@@ -206,18 +187,20 @@ const BailReckoner = () => {
                     <option value="foreignerCrimes" style={{color: 'black'}}>Crimes against Foreigners</option>
         </select>
       </div>
+
       <div className={styles.formgroup}>
-        <label htmlFor="imprisonmentYears" style={{color: 'black'}}>Imprisonment (Years):</label>
+        <label htmlFor="imprisonmentYears" style={{ color: 'black' }}>Imprisonment (Years):</label>
         <input type="number" id="imprisonmentYears" value={imprisonmentYears} onChange={handleImprisonmentYearsChange} />
       </div>
       <div className={styles.formgroup}>
-        <label htmlFor="imprisonmentMonths" style={{color: 'black'}}>Imprisonment (Months):</label>
+        <label htmlFor="imprisonmentMonths" style={{ color: 'black' }}>Imprisonment (Months):</label>
         <input type="number" id="imprisonmentMonths" value={imprisonmentMonths} onChange={handleImprisonmentMonthsChange} />
       </div>
+
       <div className={styles.checkboxgroup}>
         <div className={styles.checkbox}>
           <input type="checkbox" id="flightRisk" checked={flightRisk} onChange={handleFlightRiskChange} />
-          <label htmlFor="flightRisk" style={{color: 'black'}}>Flight Risk</label>
+          <label htmlFor="flightRisk" style={{ color: 'black' }}>Flight Risk</label>
         </div>
         <div className={styles.checkbox}>
           <input type="checkbox" id="riskOfInfluencingWitnesses" checked={riskOfInfluencingWitnesses} onChange={handleRiskOfInfluencingWitnessesChange} />
@@ -236,9 +219,23 @@ const BailReckoner = () => {
           <label htmlFor="ownsProperty" style={{color: 'black'}}>Owns Property</label>
         </div>
       </div>
-      <button className={styles.btn} onClick={calculateBailEligibility} >Calculate Bail Eligibility</button>
+
+      <button className={styles.btn} onClick={calculateBailEligibility}>Calculate Bail Eligibility</button>
+
+      {bailEligibility && (
+        <div>
+          <h3>Bail Eligibility: {bailEligibility.bailEligible ? 'Eligible' : 'Not Eligible'}</h3>
+          <p>Score: {bailEligibility.score}</p>
+          {bailEligibility.section && (
+            <div>
+              <h4>Section: {bailEligibility.section.code}</h4>
+              <p>Description: {bailEligibility.section.description}</p>
+              <p>Punishment: {bailEligibility.section.punishment}</p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
-
 export default BailReckoner;

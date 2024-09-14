@@ -1,0 +1,114 @@
+/* Base styles */
+#faqContainer {  /* Scoped with ID instead of class */
+    padding: 20px;
+    font-family: Arial, sans-serif; /* Ensure a consistent font */
+}
+
+/* Language dropdown */
+#languageDropdown {
+    margin-bottom: 20px;
+}
+
+/* Accordion styles */
+#accordionItem {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd; /* Add border for better visibility */
+    background-color: aliceblue;
+}
+
+#accordionButton {
+    font-weight: bold;
+    padding: 10px; /* Add padding for better touch targets */
+    text-align: left; /* Align text to the left */
+    background: transparent; /* Ensure the background is transparent */
+    border: none; /* Remove default border */
+    width: 100%; /* Full width for the button */
+    cursor: pointer; /* Pointer cursor for better UX */
+    display: flex; /* Flexbox for aligning content */
+    justify-content: space-between; /* Space between text and arrow */
+    align-items: center; /* Center content vertically */
+}
+
+#accordionButton:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+#accordionBody {
+    font-size: 1rem;
+    padding: 10px; /* Add padding for content */
+    border-top: 1px solid #ddd; /* Add a top border to separate content */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #accordionItem {
+        margin-bottom: 15px;
+    }
+
+    #accordionButton {
+        font-size: 1rem; /* Adjust font size for medium screens */
+    }
+
+    #accordionBody {
+        font-size: 0.95rem; /* Slightly smaller font size for medium screens */
+    }
+}
+
+@media (max-width: 900px) {
+    #faqContainer {
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    #accordionItem {
+        margin-bottom: 12px; /* Adjust margin */
+    }
+
+    #accordionButton {
+        font-size: 0.95rem; /* Slightly smaller font size */
+    }
+
+    #accordionBody {
+        font-size: 0.9rem; /* Adjust font size for better readability */
+    }
+}
+
+@media (max-width: 600px) {
+    #faqContainer {
+        padding: 10px; /* Further reduce padding */
+    }
+
+    #accordionItem {
+        margin-bottom: 10px; /* Ensure margin fits well */
+    }
+
+    #accordionButton {
+        font-size: 0.9rem; /* Adjust font size for small screens */
+        padding: 8px; /* Adjust padding for small screens */
+    }
+
+    #accordionBody {
+        font-size: 0.85rem; /* Further reduce font size */
+        padding: 8px; /* Adjust padding for better fit */
+    }
+}
+
+@media (max-width: 400px) {
+    #faqContainer {
+        padding: 5px; /* Minimize padding for very small screens */
+    }
+
+    #accordionItem {
+        margin-bottom: 8px; /* Minimize margin */
+    }
+
+    #accordionButton {
+        font-size: 0.85rem; /* Even smaller font size */
+        padding: 6px; /* Minimize padding */
+    }
+
+    #accordionBody {
+        font-size: 0.8rem; /* Minimum font size for readability */
+        padding: 6px; /* Minimize padding */
+    }
+}

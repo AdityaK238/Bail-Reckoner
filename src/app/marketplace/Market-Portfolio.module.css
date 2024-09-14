@@ -1,0 +1,331 @@
+/* Base styles */
+.body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  width: 100%;
+}
+
+.header h1 {
+  text-align: center;
+  color: #333;
+}
+
+/* Lawyer grid styles */
+.lawyerGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.cardHeader {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-bottom: 1px solid #ddd;
+}
+
+.lawyerCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 50px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 1.2s ease;
+  text-align: center;
+  width: 550px;
+  height: 275px;
+  margin: 20px;
+}
+
+.lawyerCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 50px rgba(0,0,0,0.3);
+}
+
+.cardHeader img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.cardContent {
+  padding: 15px;
+}
+
+.lawyerName {
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.badge {
+  background-color: #e7f3ff;
+  color: #0066cc;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+}
+
+.lawyerDescription {
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+.cardFooter {
+  padding: 15px;
+  text-align: center;
+}
+
+.connectButton {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.connectButton:hover {
+  background-color: #0051a3;
+}
+
+.connectButton svg {
+  margin-right: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .lawyerCard {
+    width: calc(33.333% - 20px);
+  }
+}
+
+@media (max-width: 900px) {
+  .lawyerCard {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .lawyerCard {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) and (max-height: 932px) {
+  .lawyerCard {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 50px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 1.2s ease;
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin: 20px;
+  }
+
+  .cardHeader img {
+    margin-left: 5px;
+    border-radius: 25px;
+  }
+
+  .connectButton {
+    width: 75px;
+  }
+}
+
+@media (max-width: 430px) and (max-height: 932px) and (device-width: 430px) and (device-height: 932px) {
+  .lawyerCard {
+    width: 100%;
+    height: auto;
+    margin: 10px;
+  }
+
+  .cardHeader img {
+    width: 100%;
+    height: auto;
+  }
+
+  .connectButton {
+    width: 100px;
+    padding: 10px;
+  }
+}
+
+/* Wrapper */
+.wrapper {
+  max-width: 100%;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f8f8f8;
+  border-radius: 10px 10px 0 0;
+}
+
+.header h1 {
+  margin-bottom: 10px;
+  font-size: 2em;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav li {
+  margin: 5px 15px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main {
+  margin-top: 30px;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 50px;
+}
+
+.section h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #007BFF;
+  display: inline-block;
+}
+
+/* Grid Layout for Practice Areas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 20px;
+}
+
+.gridItem {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.gridItem h3 {
+  margin-bottom: 10px;
+}
+
+.gridItem p {
+  font-size: 0.95em;
+}
+
+/* Notable Cases */
+.cases ul {
+  list-style: disc inside;
+}
+
+.cases li {
+  margin-bottom: 10px;
+}
+
+/* Contact Form */
+.contactForm {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contactForm label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  transition: border-color 0.3s;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.contactForm button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #007BFF;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 3px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.contactForm button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #f8f8f8;
+  margin-top: 40px;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Responsive Navigation */
+@media (max-width: 600px) {
+  .nav ul {
+    flex-direction: column;
+  }
+  .nav li {
+    margin: 10px 0;
+  }
+}
+
+/* Responsive Wrapper */
+@media (max-width: 960px) {
+  .wrapper {
+    margin: 10px;
+    padding: 15px;
+  }
+}
