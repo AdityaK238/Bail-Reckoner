@@ -84,9 +84,6 @@ const MarketPage = () => {
             ))}
           </div>
         </main>
-        <footer>
-          <p style={{color:'black'}}>© 2024 Lawyer Directory. All rights reserved.</p>
-        </footer>
       </div>
     </div>
   );

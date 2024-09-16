@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/statistics/rejecctions.jsx", "src/app/statistics/pending.jsx", "src/app/statistics/index.jsx", "src/app/statistics/applications.jsx", "src/app/statistics/acceptanceRates.jsx"],
   "exclude": ["node_modules"]
 }

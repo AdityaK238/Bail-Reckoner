@@ -1,0 +1,179 @@
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+    gap: 20px;
+    color: black;
+}
+
+.header {
+    background-color: #0c2434;
+    color: white;
+    padding: 1rem 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.card {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    background-color: #fff; /* White background */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    color: black;
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.2rem; /* Larger font size for card titles */
+    font-weight: bold;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-text,
+.input-date,
+.select {
+    width: 50%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.button {
+    background-color: #007bff; /* Blue button color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.chart-wrapper {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 10px;
+}
+
+.chartContainer {
+    height: 100px;
+    width: max-content;
+    display: grid;
+}
+
+.application-status-distribution {
+    display: inline;
+    width: max-content;
+}
+
+.application-status-distribution .legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.application-status-distribution .legend-item .color-box {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.application-status-distribution .legend-item .label {
+    font-size: 0.8rem;
+}
+
+.monthly-comparison {
+    width: 100%;
+    height: 300px;
+}
+
+.monthly-comparison .chart-container {
+    height: 100%;
+}
+
+.monthly-comparison .chart-container svg {
+    height: 100%;
+    width: 100%;
+}
+
+.monthly-comparison .chart-container svg .bar {
+    fill: #60c273; /* Green color */
+}
+
+.monthly-comparison .chart-container svg .bar.rejected {
+    fill: #ec4f58; /* Red color */
+}
+
+.monthly-comparison .chart-container svg .bar.pending {
+    fill: #f7c536; /* Yellow color */
+}
+
+.monthly-comparison .chart-container svg .axis-x line {
+    stroke: #ddd; /* Lighter grey for x-axis lines */
+}
+
+.monthly-comparison .chart-container svg .axis-y line {
+    stroke: #ddd; /* Lighter grey for y-axis lines */
+}
+
+.monthly-comparison .chart-container svg .axis-y text {
+    fill: #777; /* Darker grey for y-axis labels */
+}
+
+
+@media (max-width: 500px) {
+    .container {
+        padding: 50px;
+    }
+
+    .nav a {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+.chartholder {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    border: 1px solid black;
+    color: ivory;
+}
+
+.charts > * {
+    
+}

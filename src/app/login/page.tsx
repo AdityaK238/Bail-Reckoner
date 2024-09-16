@@ -14,7 +14,7 @@ export default function newLogin() {
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-card rounded-lg p-6 shadow-lg">
-            <h2 className="text-xl font-semibold mb-4" style={{color: 'black'}}>For Judges</h2>
+            <h2 className="text-xl font-semibold mb-4" style={{color: 'black'}}>For clients</h2>
             <p className="mb-4" style={{color: 'black'}}>Access case information and manage your docket.</p>
             <div className="space-x-4">
               <Link href="/login/judge">
@@ -27,7 +27,7 @@ export default function newLogin() {
           </div>
 
           <div className="bg-card rounded-lg p-6 shadow-lg">
-            <h2 className="text-xl font-semibold mb-4" style={{color: 'black'}}>For Prisoners</h2>
+            <h2 className="text-xl font-semibold mb-4" style={{color: 'black'}}>For Lawyers</h2>
             <p className="mb-4" style={{color: 'black'}}>View your case status and upcoming hearings.</p>
             <div className="space-x-4">
               <Link href="/login/prisoner">

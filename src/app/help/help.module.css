@@ -1,0 +1,140 @@
+.container {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --background-color: #f0f0f0;
+    --text-color: #333333;
+    --border-color: #cccccc;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.title {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.section {
+    background-color: #f7f7f7;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    width: 100%; /* Ensure images are of consistent width */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid var(--border-color);
+    border-radius: 12px; /* Updated border radius */
+    margin: 10px 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted var(--primary-color);
+    cursor: help;
+}
+
+.tooltipText {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltipText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav {
+    background-color: #333333;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.navLink {
+    color: var(--secondary-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-bottom: none;
+}
+
+.navLink:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #333333;
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin: 20px 0;
+}
+
+.button:hover {
+    background-color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .navLink {
+        margin-bottom: 10px;
+    }
+}
+
+.languageText {
+    color: white;
+}
+
+.languageImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.darkMode {
+    --primary-color: #ffffff;
+    --secondary-color: #000000;
+    --background-color: #333333;
+    --text-color: #f0f0f0;
+    --border-color: #555555;
+}
