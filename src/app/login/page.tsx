@@ -40,12 +40,6 @@ export default function newLogin() {
           </div>
         </div>
       </main>
-
-      <footer className="bg-muted py-4">
-        <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2023 Justice System Portal. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   )
 }
