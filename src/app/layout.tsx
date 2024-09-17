@@ -25,10 +25,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+           <div className="chatbot">
+           <button 
+        className="fixed bottom-4 right-4 bg-primary text-white p-3 rounded-full shadow-lg"
+        aria-label="Open Chatbot"><Link href="http://192.168.29.123:8501"><img src="chatbot.png"></img></Link></button>
+        </div>
         {children}
         <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">© 2023 Indian Bail Reckoner. All rights reserved.</p>

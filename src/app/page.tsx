@@ -1,9 +1,19 @@
+"use client";  // Ensure this line is added to mark the component as a Client Component
+
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { BarChart3, BookOpen, Scale, Users } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from 'next/navigation';  // Importing useRouter for navigation
 
 export default function LandingPage() {
+  
+  const router = useRouter();  // Initialize router
+
+  const handleChatButtonClick = () => {
+    router.push("http://192.168.29.123:8501");  // Redirect to chatbot page
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -12,15 +22,6 @@ export default function LandingPage() {
           <span className="sr-only">Indian Bail Reckoner</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#features" style={{ fontSize: 17 }}>
-            Features
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#how-it-works" style={{ fontSize: 17 }}>
-            How It Works
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#testimonials" style={{ fontSize: 17 }}>
-            Testimonials
-          </Link>&nbsp;&nbsp;&nbsp;
           <Link href="/faq">FAQ</Link>
           <Link href="/marketplace">Marketplace</Link>
           <Link href="/statistics">Statistics</Link>
@@ -131,6 +132,8 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
+      <button onClick={handleChatButtonClick}
+        className="fixed bottom-4 right-4 bg-primary text-white p-3 rounded-full shadow-lg"><img src="chatbot.png"></img></button>
     </div>
   );
-}
+};

@@ -26,6 +26,9 @@ body {
   }
 }
 
+.chatbot-btn { 
+  background-color: #2196F3;
+}
  
 @layer base {
   :root {
