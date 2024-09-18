@@ -1,11 +1,10 @@
 "use client"
-import ChatComponent from "@/app/components/Chatbot/ChatbotComponent";
+import  ChatBot from "@/app/components/Chatbot/ChatBot";
 
 const HomePage = () => {
   return (
     <div>
-      <h1>Chat with our Bot</h1>
-      <ChatComponent />
+      <ChatBot/>
     </div>
   );
 };

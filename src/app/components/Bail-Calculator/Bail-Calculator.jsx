@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import styles from "@/app/components/Bail-Calculator/Bail-calculator.module.css";
-import { Bold } from 'lucide-react';
 import { ipcData } from "@/app/components/ipcSections";
 
 const BailReckoner = () => {

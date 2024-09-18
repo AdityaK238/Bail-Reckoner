@@ -2,33 +2,19 @@
 
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
-import { BarChart3, BookOpen, Scale, Users } from "lucide-react";
+import { BarChart3, BookOpen, Users } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';  // Importing useRouter for navigation
 
 export default function LandingPage() {
   
   const router = useRouter();  // Initialize router
-
   const handleChatButtonClick = () => {
-    router.push("http://192.168.29.123:8501");  // Redirect to chatbot page
+    router.push("/ChatBot");  // Redirect to chatbot page
   };
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-14 flex items-center">
-        <Link className="flex items-center justify-center" href="#">
-          <Scale className="h-6 w-6" />
-          <span className="sr-only">Indian Bail Reckoner</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link href="/faq">FAQ</Link>
-          <Link href="/marketplace">Marketplace</Link>
-          <Link href="/statistics">Statistics</Link>
-          <Link href="/bail-overview" style={{ fontSize: 15.5, border: 5 }}>Bail Criteria Assessment</Link>
-          <Link href="/login" style={{ fontSize: 15 }}>Login</Link>
-        </nav>
-      </header>
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-primary">
           <div className="container px-4 md:px-6">
