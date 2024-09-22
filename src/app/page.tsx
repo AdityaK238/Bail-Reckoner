@@ -2,9 +2,10 @@
 
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
-import { BarChart3, BookOpen, Users } from "lucide-react";
+import { BarChart3, BookOpen, Users, Scale } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';  // Importing useRouter for navigation
+import { FloatingNav } from "./components/ui/floating-navbar";
 
 export default function LandingPage() {
   
@@ -13,8 +14,16 @@ export default function LandingPage() {
     router.push("/ChatBot");  // Redirect to chatbot page
   };
 
+  const navItems = [
+    { name: "FAQ", link: "/faq" },
+    { name: "Marketplace", link: "/marketplace" },
+    { name: "Statistics", link: "/statistics" },
+    { name: "Bail Criteria Assessment", link: "/bail-overview" },
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
+      <FloatingNav navItems={navItems} className="bg-white" />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-primary">
           <div className="container px-4 md:px-6">
