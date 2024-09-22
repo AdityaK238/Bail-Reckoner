@@ -119,7 +119,7 @@ export default function LandingPage() {
         </section>
       </main>
       <button onClick={handleChatButtonClick}
-        className="fixed bottom-4 right-4 bg-primary text-white p-3 rounded-full shadow-lg"><img src="chatbot.png"></img></button>
+        className="fixed bottom-16 right-4 bg-primary text-white p-3 rounded-full shadow-lg"><img src="chatbot.png"></img></button>
     </div>
   );
 };
