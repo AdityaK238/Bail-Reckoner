@@ -88,18 +88,20 @@ const BailReckoner = () => {
       {lawType === 'IPC' && (
   <div id="ipcSection">
     <label htmlFor="primarySection"><strong>Primary IPC Section</strong></label>
-    <select id="primarySection" name="primarySection" value={primarySection} className='w-full' onChange={(e) => { setPrimarySection(e.target.value) }} style={{ maxWidth: "200px", height: "40px" }}>
+    <input list="ipcSections" id="primarySection" name="primarySection" value={primarySection} className='w-full' onChange={(e) => { setPrimarySection(e.target.value) }} style={{ maxWidth: "200px", height: "40px" }} />
+    <datalist id="ipcSections">
       <option value="">Select a section</option><br />
       {ipcSec.map((section, index) => (
         <option key={index} value={section.code}>{section.code} - {section.description}</option>
       ))}
-    </select>
+    </datalist>
   </div>
 )}
         {lawType === 'BNS' && (
           <div id="bnsSection formgroupCreated">
             <label htmlFor="bnsOption">BNS Option:</label>
-            <select id="bnsOption" className='w-full'>
+            <input list="bnsSections" id="bnsOption" className='w-full' />
+            <datalist id="bnsSections">
               <option value="">Select a BNS section</option>
               <option value="BNS1">1 - Short title, extent and commencement</option>
               <option value="BNS2">2 - Definitions</option>
@@ -116,13 +118,14 @@ const BailReckoner = () => {
               <option value="BNS13">13 - Abetment of offence within and beyond India</option>
               <option value="BNS14">14 - Punishment of abetment if the act abetted is committed in consequence and where no express provision is made for its punishment</option>
               <option value="BNS15">15 - Abetment of offence punishable with death or imprisonment for life</option>
- </select>
+            </datalist>
           </div>
         )}
         {lawType === 'BSS' && (
           <div id="bssSection formgroupCreated">
             <label htmlFor="bssOption">BSS Option:</label>
-            <select id="bssOption" className='w-full'>
+            <input list="bssSections" id="bssOption" className='w-full' />
+            <datalist id="bssSections">
               <option value="">Select a BSS section</option>
               <option value="BSS1">1 - Short title, extent and commencement</option>
               <option value="BSS2">2 - Definitions</option>
@@ -139,13 +142,14 @@ const BailReckoner = () => {
               <option value="BSS13">13 - Pursuit of offenders into other jurisdictions</option>
               <option value="BSS14">14 - Search of place entered by person sought to be arrested</option>
               <option value="BSS15">15 - Procedure where gate of place to be searched is closed</option>
-            </select>
+            </datalist>
           </div>
         )}
         {lawType === 'BSA' && (
           <div id="bsaSection formgroupCreated">
             <label htmlFor="bsaOption">BSA Option:</label>
-            <select id="bsaOption" className='w-full'>
+            <input list="bsaSections" id="bsaOption" className='w-full' />
+            <datalist id="bsaSections">
               <option value="">Select a BSA section</option>
               <option value="BSA1">1 - Short title, extent and commencement</option>
               <option value="BSA2">2 - Definitions</option>
@@ -162,7 +166,7 @@ const BailReckoner = () => {
               <option value="BSA13">13 - Admission by party to proceeding or his agent</option>
               <option value="BSA14">14 - Admission by party to proceeding or his agent</option>
               <option value="BSA15">15 - Admission by party to proceeding or his agent</option>
-            </select>
+            </datalist>
           </div>
         )}
       </div>

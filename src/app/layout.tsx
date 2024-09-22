@@ -3,6 +3,9 @@
   import "./globals.css";
   import Link from "next/link";
   import { Scale } from "lucide-react";
+  import { FloatingNav } from "./components/ui/floating-navbar";
+  import { useRouter } from 'next/navigation';  // Importing useRouter for navigation
+
 
   const geistSans = localFont({
     src: "./fonts/GeistVF.woff",
@@ -26,6 +29,13 @@
   }: Readonly<{
     children: React.ReactNode;
   }>) {
+
+    const navItems = [
+      { name: "FAQ", link: "/faq" },
+      { name: "Marketplace", link: "/marketplace" },
+      { name: "Statistics", link: "/statistics" },
+      { name: "Bail Criteria Assessment", link: "/bail-overview" },
+    ];
     return (
       <html lang="en">
         <body
@@ -50,6 +60,9 @@
           </header>
 
           <main className="flex-grow">
+          <FloatingNav navItems={navItems} className="bg-white" />
+
+            {/* navbar code goes here */}
             {children}
           </main>
           
