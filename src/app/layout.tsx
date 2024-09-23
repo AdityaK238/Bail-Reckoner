@@ -73,7 +73,7 @@ export default function RootLayout({
                 Other Services
               </button>
               {dropdownOpen && (
-                <div className="absolute top-full mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10">
+                <div className="absolute top-full mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10" style={{background:"transparent"}}>
                   <Link href="/bailapplication" className="block px-4 py-2 hover:bg-gray-100">
                     Bail Application
                   </Link>
