@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 "use client"; // Mark this file as a Client Component
+=======
+  import type { Metadata } from "next";
+  import localFont from "next/font/local";
+  import "./globals.css";
+  import Link from "next/link";
+  import { Scale } from "lucide-react";
+  import { FloatingNav } from "./components/ui/floating-navbar";
+  import { useRouter } from 'next/navigation';  // Importing useRouter for navigation
+
+>>>>>>> b234ba699fa1cfdabcd3baab6d252358d37bba27
 
 import localFont from "next/font/local";
 import "./globals.css";
@@ -19,6 +30,7 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+<<<<<<< HEAD
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,6 +49,49 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         {/* Chatbot Button */}
         <div className="chatbot">
+=======
+  export default function RootLayout({
+    children,
+  }: Readonly<{
+    children: React.ReactNode;
+  }>) {
+
+    const navItems = [
+      { name: "FAQ", link: "/faq" },
+      { name: "Marketplace", link: "/marketplace" },
+      { name: "Statistics", link: "/statistics" },
+      { name: "Bail Criteria Assessment", link: "/bail-overview" },
+    ];
+    return (
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+          <div className="chatbot">
+            <button 
+              className="fixed bottom-16 right-4 bg-primary text-white p-3 rounded-full shadow-lg"
+              aria-label="Open Chatbot"><img src="chatbot.png" alt="Chatbot" /></button>
+          </div>
+          <header className="px-4 lg:px-6 h-14 flex items-center">
+            <Link className="flex items-center justify-center" href="#">
+              <Scale className="h-6 w-6" />
+              <span className="sr-only">Indian Bail Reckoner</span>
+            </Link>
+            <nav className="ml-auto flex gap-4 sm:gap-6">
+              <Link href="/faq">FAQ</Link>
+              <Link href="/marketplace">Marketplace</Link>
+              <Link href="/statistics">Statistics</Link>
+              <Link href="/bail-overview" style={{ fontSize: 15.5, border: 5 }}>Bail Criteria Assessment</Link>
+              <Link href="/login" style={{ fontSize: 15 }}>Login</Link>
+            </nav>
+          </header>
+
+          <main className="flex-grow">
+          <FloatingNav navItems={navItems} className="bg-white" />
+
+            {/* navbar code goes here */}
+            {children}
+          </main>
+>>>>>>> b234ba699fa1cfdabcd3baab6d252358d37bba27
           
         </div>
 

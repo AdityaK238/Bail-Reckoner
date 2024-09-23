@@ -1,60 +1,62 @@
 .container {
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  }
-  
-  .title {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .formgroup {
-    margin-bottom: 15px;
-  }
-  
-  .formgroup label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .formgroup input,
-  .formgroup select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .checkboxgroup {
-    margin-bottom: 15px;
-  }
-  
-  .checkbox {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .checkbox input {
-    margin-right: 5px;
-  }
-  
-  .btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #45a049;
-  }
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.formgroup {
+  margin-bottom: 15px;
+}
+
+.formgroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formgroup input,
+.formgroup select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.checkboxgroup {
+  margin-bottom: 15px;
+}
+
+.checkbox {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.checkbox input {
+  margin-right: 5px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
