@@ -2,7 +2,7 @@
 
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
-import { BarChart3, BookOpen, Users, Scale } from "lucide-react";
+import { BarChart3, BookOpen, Users} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';  // Importing useRouter for navigation
 import { FloatingNav } from "./components/ui/floating-navbar";
@@ -19,6 +19,7 @@ export default function LandingPage() {
     { name: "Marketplace", link: "/marketplace" },
     { name: "Statistics", link: "/statistics" },
     { name: "Bail Criteria Assessment", link: "/bail-overview" },
+    { name: "Other Services",link: "/bailapplication"}
   ];
 
   return (
@@ -37,7 +38,9 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="space-x-4">
+                <Link href="/bail-overview">
                 <Button className="bg-white text-primary hover:bg-gray-100">Get Started</Button>
+                </Link>
                 <Link href="/help" passHref>
                   <Button variant="outline" className="text-white border-white hover:bg-white/10">
                     Learn More
