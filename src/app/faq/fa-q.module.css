@@ -1,7 +1,19 @@
 /* Base styles */
 #faqContainer {  /* Scoped with ID instead of class */
     padding: 20px;
-    font-family: Arial, sans-serif; /* Ensure a consistent font */
+    font-family: 'Gill Sans', sans-serif; /* Ensure a consistent font */
+    text-align: center; /* Center the heading */
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+}
+
+/* Heading styles */
+#faqHeading {
+    font-size: 2.5rem; /* Larger font size for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    font-weight: 700; /* Bold text for emphasis */
+    color: #333; /* Darker text color */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
 }
 
 /* Language dropdown */
@@ -11,23 +23,33 @@
 
 /* Accordion styles */
 #accordionItem {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border-radius: 10px;
-    border: 1px solid #ddd; /* Add border for better visibility */
-    background-color: aliceblue;
+    border: 1px solid #000; /* Black border for better visibility */
+    background: rgba(0, 0, 0, 0.1); /* Slightly darker background */
+    backdrop-filter: blur(10px); /* Glassmorphic blur effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
 #accordionButton {
-    font-weight: bold;
-    padding: 10px; /* Add padding for better touch targets */
+    font-weight: 700; /* Bold text */
+    padding: 15px; /* Larger padding for better touch targets */
     text-align: left; /* Align text to the left */
-    background: transparent; /* Ensure the background is transparent */
+    background: #000; /* Black background */
+    color: #fff; /* White text */
     border: none; /* Remove default border */
     width: 100%; /* Full width for the button */
     cursor: pointer; /* Pointer cursor for better UX */
     display: flex; /* Flexbox for aligning content */
-    justify-content: space-between; /* Space between text and arrow */
+    justify-content: flex-start; /* Align content to the left */
     align-items: center; /* Center content vertically */
+    transition: background 0.3s ease; /* Smooth transition for hover effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+#accordionButton:hover {
+    background: #333; /* Darker background on hover */
 }
 
 #accordionButton:focus {
@@ -35,9 +57,11 @@
 }
 
 #accordionBody {
-    font-size: 1rem;
-    padding: 10px; /* Add padding for content */
-    border-top: 1px solid #ddd; /* Add a top border to separate content */
+    font-size: 1.2rem; /* Larger font size for content */
+    padding: 15px; /* Add padding for content */
+    border-top: 1px solid #000; /* Black top border to separate content */
+    background: #fff; /* White background for content */
+    color: #000; /* Black text */
 }
 
 /* Responsive adjustments */
@@ -47,11 +71,11 @@
     }
 
     #accordionButton {
-        font-size: 1rem; /* Adjust font size for medium screens */
+        font-size: 1.1rem; /* Adjust font size for medium screens */
     }
 
     #accordionBody {
-        font-size: 0.95rem; /* Slightly smaller font size for medium screens */
+        font-size: 1.1rem; /* Slightly smaller font size for medium screens */
     }
 }
 
@@ -65,11 +89,11 @@
     }
 
     #accordionButton {
-        font-size: 0.95rem; /* Slightly smaller font size */
+        font-size: 1rem; /* Slightly smaller font size */
     }
 
     #accordionBody {
-        font-size: 0.9rem; /* Adjust font size for better readability */
+        font-size: 1rem; /* Adjust font size for better readability */
     }
 }
 
@@ -83,13 +107,13 @@
     }
 
     #accordionButton {
-        font-size: 0.9rem; /* Adjust font size for small screens */
-        padding: 8px; /* Adjust padding for small screens */
+        font-size: 0.95rem; /* Adjust font size for small screens */
+        padding: 12px; /* Adjust padding for small screens */
     }
 
     #accordionBody {
-        font-size: 0.85rem; /* Further reduce font size */
-        padding: 8px; /* Adjust padding for better fit */
+        font-size: 0.9rem; /* Further reduce font size */
+        padding: 12px; /* Adjust padding for better fit */
     }
 }
 
@@ -103,12 +127,12 @@
     }
 
     #accordionButton {
-        font-size: 0.85rem; /* Even smaller font size */
-        padding: 6px; /* Minimize padding */
+        font-size: 0.9rem; /* Even smaller font size */
+        padding: 10px; /* Minimize padding */
     }
 
     #accordionBody {
-        font-size: 0.8rem; /* Minimum font size for readability */
-        padding: 6px; /* Minimize padding */
+        font-size: 0.85rem; /* Minimum font size for readability */
+        padding: 10px; /* Minimize padding */
     }
 }
