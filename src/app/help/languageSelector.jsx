@@ -1,5 +1,4 @@
 "use client";
-import styles from "@/app/help/help.module.css";
 import React from 'react';
 
 const LanguageSelector = ({ onLanguageSelect }) => {
@@ -10,23 +9,26 @@ const LanguageSelector = ({ onLanguageSelect }) => {
   const styles = {
     navbar: {
       backgroundColor: 'black',
-      padding: '5px',
+      padding: '10px',
       borderBottom: '1px solid #d0d0d0',
+      display: 'flex',
+      justifyContent: 'center',
     },
     toggleSwitch: {
-      padding: '5px 10px',
+      padding: '10px 20px',
       backgroundColor: '#333',
       color: '#fff',
       border: 'none',
-      borderRadius: '5px',
+      borderRadius: '8px',
       cursor: 'pointer',
+      fontSize: '16px',
     },
     toggleSwitchHover: {
       backgroundColor: '#555',
     },
     container: {
-      backgroundColor: 'transparent',
       padding: '20px',
+      backgroundColor: 'transparent',
     },
     languageCard: {
       padding: '20px',
@@ -37,8 +39,8 @@ const LanguageSelector = ({ onLanguageSelect }) => {
     },
     languageSelection: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: '10px',
+      gridTemplateColumns: 'repeat(3, 1fr)', // Maintaining previous column structure
+      gap: '20px',
       padding: '20px',
       backgroundColor: '#1e1e1e',
       fontFamily: 'Arial, sans-serif',
@@ -47,18 +49,22 @@ const LanguageSelector = ({ onLanguageSelect }) => {
       backgroundColor: 'aliceblue',
       border: '1px solid #e0e0e0',
       borderRadius: '8px',
-      padding: '15px',
+      padding: '20px',
       textAlign: 'center',
       cursor: 'pointer',
-      transition: 'background-color 0.3s',
+      transition: 'all 0.3s ease',
+      display: 'flex',
+      flexDirection: 'column', // Ensures image is above text
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     languageItemHover: {
       backgroundColor: 'lightblue',
     },
     languageText: {
-      fontSize: '14px',
+      fontSize: '16px',
       color: '#333',
-      marginBottom: '5px',
+      marginTop: '10px', // Ensures space between image and text
     },
     languageImage: {
       width: '100px',
@@ -73,7 +79,6 @@ const LanguageSelector = ({ onLanguageSelect }) => {
     <div>
       {/* Navbar with light/dark mode toggle */}
       <div style={styles.navbar}>
-        <h1></h1>
         <button
           style={styles.toggleSwitch}
           onMouseEnter={(e) => (e.target.style.backgroundColor = styles.toggleSwitchHover.backgroundColor)}
@@ -86,125 +91,34 @@ const LanguageSelector = ({ onLanguageSelect }) => {
 
       <div style={styles.container}>
         <div style={styles.languageCard}>
-          <h2 style={{ textAlign: 'center', color: 'darkviolet' }}>Help Section</h2>
+          <h2 style={{ textAlign: 'center', color: 'white' }}>Help Section</h2>
           <div style={styles.languageSelection}>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('english')}
-            >
-              <img src="/english.png" alt="English flag" style={styles.languageImage} />
-              <div style={styles.languageText}>English</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('marathi')}
-            >
-              <img src="/marathi.png" alt="Marathi flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Marathi(मराठी)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('kannada')}
-            >
-              <img src="/kannada.png" alt="Kannada flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Kannada(ಕನ್ನಡ)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('hindi')}
-            >
-              <img src="/hindi.png" alt="Kannada flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Hindi()</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('telugu')}
-            >
-              <img src="/telugu.png" alt="Telugu flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Telugu(తెలుగు)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('tamil')}
-            >
-              <img src="/tamil.png" alt="Tamil flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Tamil(தமிழ்)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('urdu')}
-            >
-              <img src="/urdu.png" alt="Urdu flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Urdu(اردو)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('gujarati')}
-            >
-              <img src="/gujrati.png" alt="Gujarati flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Gujarati(ગુજરાતી)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('odia')}
-            >
-              <img src="/odia.png" alt="Odia flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Odia(ଓଡ଼ିଆ)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('bengali')}
-            >
-              <img src="/bengali.png" alt="Bengali flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Bengali(বাংলা)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('assamese')}
-            >
-              <img src="/assam.png" alt="Assamese flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Assamese(অসমীয়া)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('malayalam')}
-            >
-              <img src="/malayalam.png" alt="Malayalam flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Malayalam(മലയാളം)</div>
-            </div>
-            <div
-              style={styles.languageItem}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
-              onClick={() => onLanguageSelect('punjabi')}
-            >
-              <img src="/punjabi.png" alt="Punjabi flag" style={styles.languageImage} />
-              <div style={styles.languageText}>Punjabi(ਪੰਜਾਬੀ)</div>
-            </div>
+            {[
+              { lang: 'English', code: 'english', imgSrc: '/english.png' },
+              { lang: 'Marathi(मराठी)', code: 'marathi', imgSrc: '/marathi.png' },
+              { lang: 'Kannada(ಕನ್ನಡ)', code: 'kannada', imgSrc: '/kannada.png' },
+              { lang: 'Hindi', code: 'hindi', imgSrc: '/hindi.png' },
+              { lang: 'Telugu(తెలుగు)', code: 'telugu', imgSrc: '/telugu.png' },
+              { lang: 'Tamil(தமிழ்)', code: 'tamil', imgSrc: '/tamil.png' },
+              { lang: 'Urdu(اردو)', code: 'urdu', imgSrc: '/urdu.png' },
+              { lang: 'Gujarati(ગુજરાતી)', code: 'gujarati', imgSrc: '/gujrati.png' },
+              { lang: 'Odia(ଓଡ଼ିଆ)', code: 'odia', imgSrc: '/odia.png' },
+              { lang: 'Bengali(বাংলা)', code: 'bengali', imgSrc: '/bengali.png' },
+              { lang: 'Assamese(অসমীয়া)', code: 'assamese', imgSrc: '/assam.png' },
+              { lang: 'Malayalam(മലയാളം)', code: 'malayalam', imgSrc: '/malayalam.png' },
+              { lang: 'Punjabi(ਪੰਜਾਬੀ)', code: 'punjabi', imgSrc: '/punjabi.png' },
+            ].map((language) => (
+              <div
+                key={language.code}
+                style={styles.languageItem}
+                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.languageItemHover.backgroundColor)}
+                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
+                onClick={() => onLanguageSelect(language.code)}
+              >
+                <img src={language.imgSrc} alt={`${language.lang} flag`} style={styles.languageImage} />
+                <div style={styles.languageText}>{language.lang}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

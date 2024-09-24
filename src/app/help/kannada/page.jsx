@@ -8,82 +8,97 @@ const styles = {
     maxWidth: '1200px',
     margin: '0 auto',
     color: 'black',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
   nav: {
-    background: 'aliceblue',
     display: 'flex',
-    justifyContent: 'space-between',
-    gap: '10px',
-    margin: '0',
-    height: '40px',
-    fontSize: '16px',
-    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    margin: '0 0 20px 0',
+    height: '60px',
+    fontSize: '18px',
     padding: '0 10px',
-    borderRadius: '6px',
+    backgroundColor: 'aliceblue',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    flexWrap: 'wrap',
+    width: '100%',
   },
-  heading: {
-    fontSize: '24px',
-    marginBottom: '20px',
+  navItem: {
+    textDecoration: 'none',
+    color: 'blue',
+    padding: '10px 15px',
+    borderRadius: '5px',
+    transition: 'background-color 0.3s, color 0.3s',
+    flex: '1 1 auto',
+    textAlign: 'center',
   },
   section: {
-    background: 'aliceblue',
+    background: 'aliceblue', // Changed background to aliceblue
     padding: '20px',
     borderRadius: '8px',
     marginBottom: '20px',
+    width: '100%', // Makes section responsive
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
-  button: {
-    display: 'inline-block',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    padding: '10px 20px',
-    borderRadius: '5px',
-    textDecoration: 'none',
-    textAlign: 'center',
-    fontSize: '16px',
+  tooltip: {
+    position: 'relative',
     cursor: 'pointer',
+    borderBottom: '1px dotted black',
   },
+  tooltipText: {
+    visibility: 'hidden',
+    width: '220px',
+    backgroundColor: '#555',
+    color: '#fff',
+    textAlign: 'center',
+    borderRadius: '6px',
+    padding: '5px 0',
+    position: 'absolute',
+    zIndex: '1',
+    bottom: '125%',
+    left: '50%',
+    marginLeft: '-110px',
+    opacity: '0',
+    transition: 'opacity 0.3s',
+  },
+};
+
+// Adding media queries for responsiveness
+const mediaQueries = {
   '@media (max-width: 768px)': {
     nav: {
-      fontSize: '14px',
       flexDirection: 'column',
       alignItems: 'flex-start',
     },
-    heading: {
-      fontSize: '20px',
+    navItem: {
+      textAlign: 'left',
+      padding: '8px',
     },
     section: {
       padding: '15px',
     },
-    button: {
-      padding: '8px 16px',
-      fontSize: '14px',
-    },
   },
   '@media (max-width: 480px)': {
     nav: {
-      fontSize: '12px',
-    },
-    heading: {
-      fontSize: '18px',
+      fontSize: '14px',
     },
     section: {
       padding: '10px',
     },
-    button: {
-      padding: '6px 12px',
-      fontSize: '12px',
-    },
   },
 };
+
 
 const Kannada = () => {
   return (
     <div style={styles.container}>
       <nav style={styles.nav}>
-        <a href="#getting-started">ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ</a>
-        <a href="#pages">ಪುಟಗಳ ಅವಲೋಕನ</a>
-        <a href="#bail-calculator">ಜಾಮೀನು ಲೆಕ್ಕಗಾರ</a>
-        <a href="#faq">FAQ</a>
+        <a href="#getting-started" style={styles.navItem}><strong>ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ</strong></a>
+        <a href="#pages" style={styles.navItem}><strong>ಪುಟಗಳ ಅವಲೋಕನ</strong> </a>
+        <a href="#bail-calculator" style={styles.navItem}><strong>ಜಾಮೀನು ಲೆಕ್ಕಗಾರ</strong> </a>
+        <a href="#faq" style={styles.navItem}><strong>FAQ</strong></a>
       </nav>
 
       <h1 style={styles.heading}>ವ್ಯಾಪಕ ಜಾಮೀನಿನ ರೆಕನರ್ ಬಳಕೆದಾರರ ಮಾರ್ಗದರ್ಶಿ</h1>
@@ -95,12 +110,7 @@ const Kannada = () => {
           ವೈಶಿಷ್ಟ್ಯಗಳು ಮತ್ತು ಕಾರ್ಯಪದ್ಧತಿಗಳನ್ನು ನಿಮಗೆ ತಿಳಿಸುತ್ತವೆ, ಮತ್ತು ನಮ್ಮ
           ವ್ಯವಸ್ಥೆಯನ್ನು ಪರಿಣಾಮಕಾರಿಯಾಗಿ ಬಳಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ.
         </p>
-        <p>
-          <em>
-            ಚಿತ್ರ: ಜಾಮೀನು ರೆಕನರ್ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ನ ಒಂದು ಸ್ಕ್ರೀನ್ಶಾಟ್, ಮುಖ್ಯ ಮೆನು ಮತ್ತು
-            ಪ್ರಮುಖ ವೈಶಿಷ್ಟ್ಯಗಳಿಗೆ ತ್ವರಿತ ಪ್ರವೇಶ ಬಟನ್‌ಗಳನ್ನು ತೋರಿಸುತ್ತಿದೆ.
-          </em><br /><br />
-        </p>
+         <br /><br />
       </div>
 
       <div id="pages" style={styles.section}>
@@ -116,12 +126,7 @@ const Kannada = () => {
           <li>ಅಗತ್ಯವಿದ್ದರೆ ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರಾ ಲಿಂಕ್ ಬಳಸಿ</li>
           <li>ಹೊಸ ಬಳಕೆದಾರರು ನೋಂದಣಿ ಬಟನ್ ಮೂಲಕ ಖಾತೆಯನ್ನು ಸೃಷ್ಟಿಸಬಹುದು</li>
         </ul>
-        <p>
-          <em>
-            ಚಿತ್ರ: ಬಳಕೆದಾರ ಹೆಸರು ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್‌ ಗೆ ಫೀಲ್ಡ್‌ ಗಳೊಂದಿಗೆ ಲಾಗಿನ್
-            ಸ್ಕ್ರೀನ್, "ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರಾ" ಮತ್ತು "ನೋಂದಣಿ" ಆಯ್ಕೆಯೊಂದಿಗೆ.
-          </em>
-        </p><br />
+        <br />
 
         <h3>2.2 FAQ ಪುಟ</h3>
         <p>
@@ -134,12 +139,7 @@ const Kannada = () => {
           <li>ಬಳಕೆದಾರರ ಪ್ರತಿಕ್ರಿಯೆಯ ಆಧಾರದ ಮೇಲೆ ನಿಯಮಿತವಾಗಿ
             ನವೀಕರಿಸಲಾಗುತ್ತದೆ</li>
         </ul>
-        <p>
-          <em>
-            ಚಿತ್ರ: ವಿಸ್ತರಣಶೀಲ ಉತ್ತರಗಳೊಂದಿಗೆ ವರ್ಗೀಕರಿಸಿದ ಪ್ರಶ್ನೆಗಳೊಂದಿಗೆ
-            FAQ ಪುಟ.
-          </em>
-        </p><br />
+       <br />
 
         <h3>2.3 ಅಂಕಿ ಅಂಶ ಪುಟ</h3>
         <p>
@@ -151,10 +151,6 @@ const Kannada = () => {
           <li>ಕಾಲಕಾಲಕ್ಕೆ ಪ್ರವರ್ತನೆಗಳನ್ನು ವಿಶ್ಲೇಷಿಸಿ</li>
           <li>ವಿವಿಧ ಅಂಶಗಳ ಮೂಲಕ ಅಂಕಿ ಅಂಶಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ</li>
         </ul>
-        <p>
-          <em>ಚಿತ್ರ: ಜಾಮೀನು ಸಂಬಂಧಿತ ಅಂಕಿ ಅಂಶಗಳ ಗ್ರಾಫ್ ಮತ್ತು ಚಾರ್ಟ್‌ಗಳನ್ನು ತೋರಿಸುವ
-            ಅಂಕಿ ಅಂಶ ಪುಟ.</em>
-        </p>
       </div>
 
       <div id="bail-calculator" style={styles.section}>

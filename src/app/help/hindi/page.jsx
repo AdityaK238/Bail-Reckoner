@@ -2,87 +2,13 @@
 import React from 'react';
 
 const Hindi = () => {
-  const styles = {
-    container: {
-      padding: '20px',
-      maxWidth: '1200px',
-      margin: '0 auto',
-      color: 'black',
-    },
-    nav: {
-      background: 'aliceblue',
-      display: 'flex',
-      justifyContent: 'space-between',
-      gap: '10px',
-      margin: '0',
-      height: '40px',
-      fontSize: '16px',
-      flexWrap: 'wrap',
-      padding: '0 10px',
-      borderRadius: '6px',
-    },
-    heading: {
-      fontSize: '24px',
-      marginBottom: '20px',
-    },
-    section: {
-      background: 'aliceblue',
-      padding: '20px',
-      borderRadius: '8px',
-      marginBottom: '20px',
-    },
-    button: {
-      display: 'inline-block',
-      backgroundColor: '#007bff',
-      color: '#fff',
-      padding: '10px 20px',
-      borderRadius: '5px',
-      textDecoration: 'none',
-      textAlign: 'center',
-      fontSize: '16px',
-      cursor: 'pointer',
-    },
-    '@media (max-width: 768px)': {
-      nav: {
-        fontSize: '14px',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-      },
-      heading: {
-        fontSize: '20px',
-      },
-      section: {
-        padding: '15px',
-      },
-      button: {
-        padding: '8px 16px',
-        fontSize: '14px',
-      },
-    },
-    '@media (max-width: 480px)': {
-      nav: {
-        fontSize: '12px',
-      },
-      heading: {
-        fontSize: '18px',
-      },
-      section: {
-        padding: '10px',
-      },
-      button: {
-        padding: '6px 12px',
-        fontSize: '12px',
-      },
-    },
-  };
-
   return (
     <div style={styles.container}>
       <nav style={styles.nav}>
-        <a href="#getting-started">शुरू करें</a>
-        <a href="#pages">पृष्ठ अवलोकन</a>
-        <a href="#bail-calculator">जमानत कैलकुलेटर</a>
-        <a href="#faq">सामान्य प्रश्न</a>
+        <a href="#getting-started" style={styles.navItem}>शुरू करें</a>
+        <a href="#pages" style={styles.navItem}>पृष्ठ अवलोकन</a>
+        <a href="#bail-calculator" style={styles.navItem}>जमानत कैलकुलेटर</a>
+        <a href="#faq" style={styles.navItem}>सामान्य प्रश्न</a>
       </nav>
 
       <h1 style={styles.heading}>व्यापक जमानत रेकनर उपयोगकर्ता मार्गदर्शिका</h1>
@@ -180,5 +106,100 @@ const Hindi = () => {
     </div>
   );
 };
+
+const styles = {
+  container: {
+    padding: '20px',
+    maxWidth: '1200px',
+    margin: '0 auto',
+    color: 'black',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  nav: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    margin: '0 0 20px 0',
+    height: '60px',
+    fontSize: '18px',
+    padding: '0 10px',
+    backgroundColor: 'aliceblue',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    flexWrap: 'wrap',
+    width: '100%',
+  },
+  navItem: {
+    textDecoration: 'none',
+    color: 'blue',
+    padding: '10px 15px',
+    borderRadius: '5px',
+    transition: 'background-color 0.3s, color 0.3s',
+    flex: '1 1 auto',
+    textAlign: 'center',
+  },
+  section: {
+    background: 'aliceblue', // Changed background to aliceblue
+    padding: '20px',
+    borderRadius: '8px',
+    marginBottom: '20px',
+    width: '100%', // Makes section responsive
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+  },
+  tooltip: {
+    position: 'relative',
+    cursor: 'pointer',
+    borderBottom: '1px dotted black',
+  },
+  tooltipText: {
+    visibility: 'hidden',
+    width: '220px',
+    backgroundColor: '#555',
+    color: '#fff',
+    textAlign: 'center',
+    borderRadius: '6px',
+    padding: '5px 0',
+    position: 'absolute',
+    zIndex: '1',
+    bottom: '125%',
+    left: '50%',
+    marginLeft: '-110px',
+    opacity: '0',
+    transition: 'opacity 0.3s',
+  },
+};
+
+// Adding media queries for responsiveness
+const mediaQueries = {
+  '@media (max-width: 768px)': {
+    nav: {
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+    },
+    navItem: {
+      textAlign: 'left',
+      padding: '8px',
+    },
+    section: {
+      padding: '15px',
+    },
+  },
+  '@media (max-width: 480px)': {
+    nav: {
+      fontSize: '14px',
+    },
+    section: {
+      padding: '10px',
+    },
+  },
+};
+
+
+
+
+
+
+
 
 export default Hindi;

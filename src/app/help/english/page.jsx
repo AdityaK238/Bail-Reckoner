@@ -1,28 +1,23 @@
 "use client";
-
-import { color } from 'chart.js/helpers';
-import React from 'react';
+import React from "react";
 
 const English = () => {
   return (
     <div style={styles.container}>
       <nav style={styles.nav}>
-        <a href="#getting-started"><strong>Getting Started</strong></a>
-        <a href="#pages"><strong>Pages Overview</strong></a>
-        <a href="#bail-calculator"><strong>Bail Calculator</strong></a>
-        <a href="#faq"><strong>FAQ</strong></a>
+        <a href="#getting-started" style={styles.navItem}><strong>Getting Started</strong></a>
+        <a href="#pages" style={styles.navItem}><strong>Pages Overview</strong></a>
+        <a href="#bail-calculator" style={styles.navItem}><strong>Bail Calculator</strong></a>
+        <a href="#faq" style={styles.navItem}><strong>FAQ</strong></a>
       </nav>
-
-      <h1 style={styles.heading}>Comprehensive Bail Reckoner User Guide</h1>
 
       <div id="getting-started" style={styles.section}>
         <h2>1. Getting Started</h2>
         <p>Welcome to the Bail Reckoner application. This comprehensive guide will walk you through all features and functionalities, ensuring you can effectively use our system.</p>
-        <p><em>Image: A screenshot of the Bail Reckoner dashboard, showing the main menu and quick access buttons to key features.</em></p>
       </div>
 
       <div id="pages" style={styles.section}>
-        <h2>2. Pages Overview</h2><br />
+        <h2>2. Pages Overview</h2><br></br>
 
         <h3>2.1 Login Page</h3>
         <p>The login page is your gateway to the Bail Reckoner system. Here is what you need to know:</p>
@@ -30,8 +25,7 @@ const English = () => {
           <li>Enter your username and password</li>
           <li>Use the Forgot Password link if needed</li>
           <li>New users can create an account via the Register button</li>
-        </ul>
-        <p><em>Image: The login screen with fields for username and password, along with "Forgot Password" and "Register" options.</em></p><br /><br />
+        </ul><br></br>
 
         <h3>2.2 FAQ Page</h3>
         <p>Our FAQ page answers common questions about bail calculation, system usage, and legal considerations.</p>
@@ -39,8 +33,7 @@ const English = () => {
           <li>Organized by categories for easy navigation</li>
           <li>Searchable for quick answers</li>
           <li>Regularly updated based on user feedback</li>
-        </ul>
-        <p><em>Image: The FAQ page showing categorized questions with expandable answers.</em></p><br /><br />
+        </ul><br></br>
 
         <h3>2.3 Stats Page</h3>
         <p>The Stats page provides valuable insights into bail trends and system usage:</p>
@@ -48,8 +41,7 @@ const English = () => {
           <li>View aggregate data on bail amounts</li>
           <li>Analyze trends over time</li>
           <li>Filter statistics by various parameters</li>
-        </ul>
-        <p><em>Image: The Stats page displaying graphs and charts of bail-related statistics.</em></p><br /><br />
+        </ul><br></br>
       </div>
 
       <div id="bail-calculator" style={styles.section}>
@@ -61,8 +53,7 @@ const English = () => {
           <li>Input the <span style={styles.tooltip}>offense details<span style={styles.tooltipText}>Include the nature of the offense, any prior convictions, and other relevant factors</span></span></li>
           <li>Add any mitigating or aggravating factors</li>
           <li>Click Calculate Bail</li>
-        </ol>
-        <p><em>Image: The Bail Calculator interface showing input fields for defendant details and offense information.</em></p><br /><br />
+        </ol><br></br>
 
         <h3>3.1 Interpreting Results</h3>
         <p>After calculation, you will see a comprehensive results page:</p>
@@ -72,7 +63,6 @@ const English = () => {
           <li>Breakdown of factors influencing the decision</li>
           <li>Comparative data with similar cases</li>
         </ul>
-        <p><em>Image: The results page showing the calculated bail amount, risk assessment, and influencing factors.</em></p><br />
       </div>
 
       <div id="faq" style={styles.section}>
@@ -97,30 +87,39 @@ const styles = {
     maxWidth: '1200px',
     margin: '0 auto',
     color: 'black',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
   },
   nav: {
-    background: 'blue',
     display: 'flex',
-    justifyContent: 'space-between',
-    gap: '10px',
-    margin: '0',
-    height: '40px',
-    fontSize: '16px',
-    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    margin: '0 0 20px 0',
+    height: '60px',
+    fontSize: '18px',
     padding: '0 10px',
     backgroundColor: 'aliceblue',
-    borderRadius: '6px',
+    borderRadius: '8px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    flexWrap: 'wrap',
+    width: '100%',
   },
-  heading: {
-    fontSize: '24px',
-    marginBottom: '20px',
+  navItem: {
+    textDecoration: 'none',
+    color: 'blue',
+    padding: '10px 15px',
+    borderRadius: '5px',
+    transition: 'background-color 0.3s, color 0.3s',
+    flex: '1 1 auto',
+    textAlign: 'center',
   },
   section: {
-    background: '#f0f0f0',
+    background: 'aliceblue', // Changed background to aliceblue
     padding: '20px',
     borderRadius: '8px',
     marginBottom: '20px',
-    backgroundColor: 'aliceblue',
+    width: '100%', // Makes section responsive
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
   tooltip: {
     position: 'relative',
@@ -143,51 +142,29 @@ const styles = {
     opacity: '0',
     transition: 'opacity 0.3s',
   },
-  button: {
-    display: 'inline-block',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    padding: '10px 20px',
-    borderRadius: '5px',
-    textDecoration: 'none',
-    textAlign: 'center',
-    fontSize: '16px',
-    cursor: 'pointer',
-  },
 };
 
 // Adding media queries for responsiveness
 const mediaQueries = {
   '@media (max-width: 768px)': {
     nav: {
-      fontSize: '14px',
       flexDirection: 'column',
       alignItems: 'flex-start',
     },
-    heading: {
-      fontSize: '20px',
+    navItem: {
+      textAlign: 'left',
+      padding: '8px',
     },
     section: {
       padding: '15px',
     },
-    button: {
-      padding: '8px 16px',
-      fontSize: '14px',
-    },
   },
   '@media (max-width: 480px)': {
     nav: {
-      fontSize: '12px',
-    },
-    heading: {
-      fontSize: '18px',
+      fontSize: '14px',
     },
     section: {
       padding: '10px',
-    },
-    button: {
-      padding: '6px 12px',
-      fontSize: '12px',
     },
   },
 };

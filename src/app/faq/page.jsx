@@ -23,18 +23,32 @@ const FaqComponent = () => {
 
     return (
         <div id={styles.faqContainer}> {/* Apply the faqContainer ID */}
-            <h1>FAQ</h1>
-            <div id={styles.languageDropdown}> {/* Apply languageDropdown ID */}
-                <h2>Select your language</h2>
-                <select value={selectedLanguage} onChange={handleLanguageChange} style={{color:'black',borderRadius:'5%',background:'aliceblue'}}>
-                    <option value='en'>English</option>
-                    <option value='hi'>Hindi</option>
-                    <option value='pa'>Punjabi</option>
-                    <option value='gu'>Gujarati</option>
-                    <option value='ml'>Malayalam</option>
-                    <option value='te'>Telugu</option>
-                    <option value='ma'>Marathi</option>
-                    <option value='sa'>Santhali</option>
+    <h1 style={{ fontSize: "25px" }}>FAQ</h1>
+    <div id={styles.languageDropdown} style={{ background: "#acacac", justifyContent: "center", alignItems: "center" }}>
+        <h2 style={{ fontSize: "25px" }}>Select your language</h2>
+        <select 
+            value={selectedLanguage} 
+            onChange={handleLanguageChange} 
+            style={{ 
+                justifyContent: "center", 
+                fontWeight: "bold", 
+                alignItems: "center", 
+                color: 'black', 
+                background: 'aliceblue', 
+                borderRadius: "45px", 
+                width: "25%", 
+                height: "40px", 
+                textAlign: 'center',    // Centers the text inside
+                textAlignLast: 'center' // Ensures selected option text is centered
+            }}>
+            <option value='en'>English</option>
+            <option value='hi'>Hindi</option>
+            <option value='pa'>Punjabi</option>
+            <option value='gu'>Gujarati</option>
+            <option value='ml'>Malayalam</option>
+            <option value='te'>Telugu</option>
+            <option value='ma'>Marathi</option>
+            <option value='sa'>Santhali</option>
                 </select>
             </div>
             <div>
