@@ -47,7 +47,7 @@ export default function RootLayout({
           <button 
             className="fixed bottom-16 right-4 bg-primary text-white p-3 rounded-full shadow-lg"
             aria-label="Open Chatbot">
-            <img src="chatbot.png" alt="Chatbot" />
+            <a href="http://localhost:3000/ChatBot"><img src="chatbot.png" alt="Chatbot"/></a>
           </button>
         </div>
 
@@ -70,7 +70,6 @@ export default function RootLayout({
                 onClick={toggleDropdown}
                 aria-expanded={dropdownOpen}
               >
-                Other Services
               </button>
               {dropdownOpen && (
                 <div className="absolute top-full mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10" style={{background:"transparent"}}>
