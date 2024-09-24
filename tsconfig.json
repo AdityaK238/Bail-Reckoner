@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/statistics/rejecctions.jsx", "src/app/statistics/pending.jsx", "src/app/statistics/index.jsx", "src/app/statistics/applications.jsx", "src/app/statistics/acceptanceRates.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/statistics/rejecctions.jsx", "src/app/statistics/pending.jsx", "src/app/statistics/index.jsx", "src/app/statistics/applications.jsx", "src/app/statistics/acceptanceRates.jsx", "src/app/components/Chatbot/ChatBot1.jsx"],
   "exclude": ["node_modules"]
 }
