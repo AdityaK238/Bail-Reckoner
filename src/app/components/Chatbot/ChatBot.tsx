@@ -31,6 +31,17 @@ export default function ChatBot() {
 
   useEffect(scrollToBottom, [messages])
 
+  // async function getResponse(prompt: string) {
+  //   const chat = await model.startChat({ history: history.map(item => ({
+  //     ...item,
+  //     parts: [{ text: item.parts }]
+  //   })) })
+  //   const result = await chat.sendMessage(prompt)
+  //   const response = await result.response
+  //   const text = response.text()
+  //   console.log(text)
+  //   return text
+  // }
   async function getResponse(prompt: string) {
     const chat = await model.startChat({ history: history.map(item => ({
       ...item,
@@ -38,11 +49,11 @@ export default function ChatBot() {
     })) })
     const result = await chat.sendMessage(prompt)
     const response = await result.response
-    const text = response.text()
-    console.log(text)
-    return text
+    const text = response.text().replace(/\*/g, '')
+    const limitedText = text.split('.').slice(0, 5).join('.') + '.'
+    console.log(limitedText)
+    return limitedText
   }
-
   const handleSendMessage = async (event: React.FormEvent) => {
     event.preventDefault()
     const prompt = userMessage.trim()
@@ -99,12 +110,34 @@ export default function ChatBot() {
         
         <ScrollArea className="flex-grow p-6 space-y-4">
           {messages.map((message, index) => (
-            <div key={index} className={`flex ${message.user ? 'justify-end' : 'justify-start'}`}>
-                <div className={`p-3 rounded-lg max-w-[80%] ${
-                  message.user ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800'
-                }`} style={message.user ? { backgroundColor: 'rgb(60, 214, 52)', fontFamily: 'Montserrat, sans-serif', color: 'white' } : { backgroundColor: 'rgb(20, 100, 220)', fontFamily: 'Montserrat, sans-serif', color: 'white' }}>
-                <p>{message.user || message.bot}</p>
+            <div 
+              key={index} 
+              className={`flex ${message.user ? 'justify-end' : 'justify-start'}`} 
+              style={{ marginBottom: '1rem' }} // Added inline CSS for spacing
+            >
+              {!message.user && (
+          <img 
+            src="https://img.icons8.com/ios-filled/50/000000/robot-2.png" 
+       
+            alt="Bot Avatar" 
+            className="w-10 h-10 rounded-full mr-2" 
+          />
+              )}
+              <div 
+          className={`p-3 rounded-lg max-w-[80%] ${
+            message.user ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800'
+          }`} 
+          style={message.user ? { backgroundColor: 'rgb(60, 214, 52)', fontFamily: 'Montserrat, sans-serif', color: 'white' } : { backgroundColor: 'rgb(20, 100, 220)', fontFamily: 'Montserrat, sans-serif', color: 'white' }}
+              >
+          <p>{message.user || message.bot}</p>
               </div>
+              {message.user && (
+          <img 
+            src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" 
+            alt="User Avatar" 
+            className="w-10 h-10 rounded-full ml-2" 
+          />
+              )}
             </div>
           ))}
           <div ref={messagesEndRef} />
