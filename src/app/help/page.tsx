@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Use the correct import for Next.js routing
 import Hindi from "@/app/help/hindi/page";
-import Kannada from "@/app/help/Kannada/page";
+import kannada from "@/app/help/kannada/page";
 import English from "@/app/help/english/page";
 import LanguageSelector from "@/app/help/languageSelector";
 
@@ -22,7 +22,7 @@ const HelpPage: React.FC = () => {
       case 'hindi':
         return <Hindi />;
       case 'kannada':
-        return <Kannada />;
+        return <kannada/>;
       case 'english':
         return <English />;
       default:

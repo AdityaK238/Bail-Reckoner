@@ -13,10 +13,9 @@ const BailReckoner = () => {
   const [familyInJurisdiction, setFamilyInJurisdiction] = useState(false);
   const [employed, setEmployed] = useState(false);
   const [ownsProperty, setOwnsProperty] = useState(false);
-  const [bailEligibility, setBailEligibility] = useState(null);
+  const [bailEligibility, setBailEligibility] = useState({ sections: [] });
   const [sections, setSections] = useState([{ code: " " }]);
   const [summary, setSummary] = useState(null);
-
   const ipcSec = ipcData.sections;
 
   const handleLawTypeChange = (event) => {
@@ -399,19 +398,23 @@ const BailReckoner = () => {
       <button className={styles.btn} onClick={calculateBailEligibility}>Calculate Bail Eligibility</button>
 
       {bailEligibility && (
-        <div>
-          <h3>Bail Eligibility: {bailEligibility.bailEligible ? 'Eligible' : 'Not Eligible'}</h3>
-          <p>Score: {bailEligibility.score}</p>
-          {bailEligibility.sections.map((section, index) => (
-            <div key={index}>
-              <h4>Section: {section.code}</h4>
-              <p>Description: {section.description}</p>
-              <p>Punishment: {section.punishment}</p>
-            </div>
-          ))}
-          <button className={styles.btn} onClick={generateSummary}>Generate Summary</button>
+  <div>
+    <h3>Bail Eligibility: {bailEligibility.bailEligible ? 'Eligible' : 'Not Eligible'}</h3>
+    <p>Score: {bailEligibility.score}</p>
+    {Array.isArray(bailEligibility.sections) && bailEligibility.sections.length > 0 ? (
+      bailEligibility.sections.map((section, index) => (
+        <div key={index}>
+          <h4>Section: {section?.code || 'N/A'}</h4>
+          <p>Description: {section?.description || 'N/A'}</p>
+          <p>Punishment: {section?.punishment || 'N/A'}</p>
         </div>
-      )}
+      ))
+    ) : (
+      <p>No sections available.</p>
+    )}
+    <button className={styles.btn} onClick={generateSummary}>Generate Summary</button>
+  </div>
+)}
 
       {summary && (
         <div className={styles.summaryContainer}>

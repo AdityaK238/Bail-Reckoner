@@ -168,10 +168,6 @@ const styles = {
     opacity: '0',
     transition: 'opacity 0.3s',
   },
-};
-
-// Adding media queries for responsiveness
-const mediaQueries = {
   '@media (max-width: 768px)': {
     nav: {
       flexDirection: 'column',
@@ -194,12 +190,5 @@ const mediaQueries = {
     },
   },
 };
-
-
-
-
-
-
-
 
 export default Hindi;

@@ -63,10 +63,6 @@ const styles = {
     opacity: '0',
     transition: 'opacity 0.3s',
   },
-};
-
-// Adding media queries for responsiveness
-const mediaQueries = {
   '@media (max-width: 768px)': {
     nav: {
       flexDirection: 'column',
@@ -90,8 +86,7 @@ const mediaQueries = {
   },
 };
 
-
-const Kannada = () => {
+const kannada = () => {
   return (
     <div style={styles.container}>
       <nav style={styles.nav}>
@@ -181,4 +176,4 @@ const Kannada = () => {
   );
 };
 
-export default Kannada;
+export default kannada;

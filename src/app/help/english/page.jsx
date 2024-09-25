@@ -142,10 +142,6 @@ const styles = {
     opacity: '0',
     transition: 'opacity 0.3s',
   },
-};
-
-// Adding media queries for responsiveness
-const mediaQueries = {
   '@media (max-width: 768px)': {
     nav: {
       flexDirection: 'column',
@@ -167,6 +163,12 @@ const mediaQueries = {
       padding: '10px',
     },
   },
+
+};
+
+// Adding media queries for responsiveness
+const mediaQueries = {
+ 
 };
 
 export default English;
