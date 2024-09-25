@@ -42,13 +42,13 @@ const FaqComponent = () => {
                 textAlignLast: 'center' // Ensures selected option text is centered
             }}>
             <option value='en'>English</option>
-            <option value='hi'>Hindi</option>
-            <option value='pa'>Punjabi</option>
-            <option value='gu'>Gujarati</option>
-            <option value='ml'>Malayalam</option>
-            <option value='te'>Telugu</option>
-            <option value='ma'>Marathi</option>
-            <option value='sa'>Santhali</option>
+            <option value='hi'>Hindi (हिन्दी)</option>
+            <option value='pa'>Punjabi (ਪੰਜਾਬੀ)</option>
+            <option value='gu'>Gujarati (ગુજરાતી)</option>
+            <option value='ml'>Malayalam (മലയാളം)</option>
+            <option value='te'>Telugu (తెలుగు)</option>
+            <option value='ma'>Marathi (मराठी)</option>
+            <option value='sa'>Santhali (ᱥᱟᱱᱛᱟᱲᱤ)</option>
                 </select>
             </div>
             <div>
