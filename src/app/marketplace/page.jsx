@@ -1,70 +1,78 @@
-"use client"
+"use client";
 import styles from "@/app/marketplace/Market-Portfolio.module.css";
 
 const lawyers = [
   {
     id: 1,
-    name: "Jane Doe",
+    name: "Priya Patel",
     specialization: "Corporate Law",
     description: "Mergers and acquisitions expert",
+    image: "https://picsum.photos/id/10/150/150?grayscale&category=people",
   },
   {
     id: 2,
-    name: "John Smith",
+    name: "Rajesh Kumar",
     specialization: "Criminal Law",
     description: "White-collar crime specialist",
+    image: "https://picsum.photos/id/20/150/150?grayscale&category=people",
   },
   {
     id: 3,
-    name: "Emily Brown",
+    name: "Meena Singh",
     specialization: "Family Law",
     description: "Divorce and custody expert",
+    image: "https://picsum.photos/id/30/150/150?grayscale&category=people",
   },
   {
     id: 4,
-    name: "Michael Johnson",
+    name: "Amit Gupta",
     specialization: "IP Law",
     description: "Patent and trademark specialist",
+    image: "https://picsum.photos/id/40/150/150?grayscale&category=people",
   },
   {
     id: 5,
-    name: "Sarah Wilson",
+    name: "Sita Sharma",
     specialization: "Environmental Law",
     description: "Sustainability and compliance expert",
+    image: "https://picsum.photos/id/50/150/150?grayscale&category=people",
   },
   {
     id: 6,
-    name: "David Lee",
+    name: "Ravi Verma",
     specialization: "Tax Law",
     description: "Corporate tax planning specialist",
+    image: "https://picsum.photos/id/60/150/150?grayscale&category=people",
   },
   {
     id: 7,
-    name: "Laura Martinez",
+    name: "Neha Reddy",
     specialization: "Immigration Law",
     description: "Visa and citizenship expert",
+    image: "https://picsum.photos/id/70/150/150?grayscale&category=people",
   },
   {
     id: 8,
-    name: "James Anderson",
+    name: "Vikram Yadav",
     specialization: "Employment Law",
     description: "Workplace rights and compliance specialist",
+    image: "https://picsum.photos/id/80/150/150?grayscale&category=people",
   },
 ];
 
 const MarketPage = () => {
   return (
     <div className={styles.body}>
-      <div className={styles.wrapper} style={{background:'aliceblue'}}>
+      <div className={styles.wrapper} style={{ background: 'aliceblue' }}>
         <header>
-          <h1 style={{color:'black'}}>Lawyer Directory</h1>
+          <h1 style={{ color: 'black' }}>Lawyer Directory</h1>
         </header>
         <main>
           <div id={styles.lawyerGrid} className={styles.lawyerGrid}>
             {lawyers.map((lawyer) => (
-              <div key={lawyer.id} className={styles.lawyerCard} style={{background:'aliceblue'}}>
+              <div key={lawyer.id} className={styles.lawyerCard} style={{ background: 'aliceblue' }}>
                 <div className={styles.cardHeader}>
-                  <img src="/lawyer.jpeg" style={{width: '100px',height:'150px',borderRadius:'50%',objectFit:'cover',display: 'flex',justifyContent: 'center', alignItems: 'center'}}alt={lawyer.name} />
+                  <img src={lawyer.image} style={{ width: '100px', height: '150px', borderRadius: '50%', objectFit: 'cover', display: 'flex', justifyContent: 'center', alignItems: 'center' }} alt={lawyer.name} />
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.lawyerName}>{lawyer.name}</h3>
