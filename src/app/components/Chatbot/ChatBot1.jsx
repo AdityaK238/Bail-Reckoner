@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import axios from 'axios';
+import styles from "@/app/components/Chatbot/chatbot.module.css";
 
 const ChatBot = () => {
   const [userMessage, setUserMessage] = useState('');
