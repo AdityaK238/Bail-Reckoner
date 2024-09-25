@@ -1,11 +1,5 @@
 /* Reset and basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+.container {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #333;
     line-height: 1.6;
@@ -26,51 +20,39 @@ body {
     border-radius: 10px;
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #f8f8f8;
-    border-radius: 10px 10px 0 0;
-}
-
-header h1 {
-    margin-bottom: 10px;
-    font-size: 2em;
-}
-
-nav ul {
+/* Navigation */
+.navList {
     list-style: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-nav li {
+.navItem {
     margin: 5px 15px;
 }
 
-nav a {
+.navLink {
     text-decoration: none;
     color: #007BFF;
     font-weight: bold;
 }
 
-nav a:hover {
+.navLinkHover:hover {
     text-decoration: underline;
 }
 
 /* Main Content */
-main {
+.mainContent {
     margin-top: 30px;
 }
 
 /* Sections */
-section {
+.section {
     margin-bottom: 50px;
 }
 
-section h2 {
+.sectionTitle {
     font-size: 1.5em;
     margin-bottom: 20px;
     border-bottom: 2px solid #007BFF;
@@ -78,49 +60,49 @@ section h2 {
 }
 
 /* Grid Layout for Practice Areas */
-.grid {
+.practice {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;
 }
 
-.grid-item {
+.gridItem {
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 5px;
 }
 
-.grid-item h3 {
+.gridItemTitle {
     margin-bottom: 10px;
 }
 
-.grid-item p {
+.gridItemDescription {
     font-size: 0.95em;
 }
 
 /* Notable Cases */
-#cases ul {
+.notableCases {
     list-style: disc inside;
 }
 
-#cases li {
+.notableCaseItem {
     margin-bottom: 10px;
 }
 
 /* Contact Form */
-#contact-form {
+.contactForm {
     max-width: 600px;
     margin: 0 auto;
 }
 
-#contact-form label {
+.contactLabel {
     display: block;
     margin-top: 15px;
     font-weight: bold;
 }
 
-#contact-form input,
-#contact-form textarea {
+.contactInput,
+.contactTextarea {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -129,13 +111,13 @@ section h2 {
     transition: border-color 0.3s;
 }
 
-#contact-form input:focus,
-#contact-form textarea:focus {
+.contactInputFocus:focus,
+.contactTextareaFocus:focus {
     border-color: #007BFF;
     outline: none;
 }
 
-#contact-form button {
+.contactButton {
     margin-top: 20px;
     padding: 10px 15px;
     background-color: #007BFF;
@@ -147,13 +129,13 @@ section h2 {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-#contact-form button:hover {
+.contactButtonHover:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
 /* Footer */
-footer {
+.footer {
     text-align: center;
     padding: 15px 0;
     background-color: #f8f8f8;
@@ -161,12 +143,32 @@ footer {
     border-radius: 0 0 10px 10px;
 }
 
+/* Lawyer Not Found */
+.lawyerNotFound {
+    font-size: 1.8em;
+    color: #d9534f;
+    text-align: center;
+}
+
+.errorMessage {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Contact Lawyer */
+.contactName {
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 /* Responsive Navigation */
 @media (max-width: 600px) {
-    nav ul {
+    .navList {
         flex-direction: column;
     }
-    nav li {
+
+    .navItem {
         margin: 10px 0;
     }
 }

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import styles from "@/app/portfolio/porfolio.module.css";
 
 const lawyers = [
   {
@@ -108,7 +109,7 @@ const lawyers = [
   },
   {
     id: 5,
-    name: " Sarah Wilson",
+    name: "Sarah Wilson",
     specialization: "Environmental Law",
     bio: "Sarah Wilson is an environmental law attorney with a passion for sustainability and compliance.",
     practiceAreas: [
@@ -256,21 +257,23 @@ const LawyerProfile = () => {
   if (!lawyer) {
     return (
       <div>
-        <h1>Lawyer not found</h1>
-        <p>Sorry, the requested lawyer profile does not exist.</p>
+        <h1 className={styles.lawyerNotFound}>Lawyer not found</h1>
+        <p className={styles.errorMessage}>
+          Sorry, the requested lawyer profile does not exist.
+        </p>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1 id="lawyer-name">{lawyer.name}, Attorney at Law</h1>
-      <p id="lawyer-bio">{lawyer.bio}</p>
+    <div className={styles.container}>
+      <h1 className={styles.lawyerName}>{lawyer.name}, Attorney at Law</h1>
+      <p className={styles.lawyerBio}>{lawyer.bio}</p>
 
       <h2>Practice Areas</h2>
-      <div id="practice-areas-grid">
+      <div className={styles.practice}>
         {lawyer.practiceAreas.map((area, index) => (
-          <div className="grid-item" key={index}>
+          <div className={styles.gridItem} key={index}>
             <h3>{area.name}</h3>
             <p>{area.description}</p>
           </div>
@@ -278,15 +281,15 @@ const LawyerProfile = () => {
       </div>
 
       <h2>Notable Cases</h2>
-      <ul id="notable-cases">
+      <ul className={styles.notableCases}>
         {lawyer.notableCases.map((caseItem, index) => (
           <li key={index}>{caseItem}</li>
         ))}
       </ul>
 
       <footer>
-        <p id="lawyer-footer-name">Contact {lawyer.name}</p>
-        <form id="contact-form" onSubmit={handleContactSubmit}>
+        <p className={styles.contactName}>Contact {lawyer.name}</p>
+        <form className={styles.contactForm} onSubmit={handleContactSubmit}>
           <div>
             <label htmlFor="name">Name:</label>
             <input type="text" id="name" name="name" required />
@@ -297,7 +300,7 @@ const LawyerProfile = () => {
           </div>
           <div>
             <label htmlFor="message">Message:</label>
-            <textarea id="message" name="message" required />
+            <textarea id="message" name="message" required></textarea>
           </div>
           <button type="submit">Submit</button>
         </form>

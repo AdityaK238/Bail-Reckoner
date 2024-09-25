@@ -1,6 +1,5 @@
 "use client";
 import LawyerProfile from "@/app/portfolio/profile_page";
-import React, { useState, useEffect } from 'react';
 
 
 const PortfolioPage = () => {
