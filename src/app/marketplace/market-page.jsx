@@ -1,6 +1,6 @@
 "use client";
 import styles from "@/app/marketplace/Market-Portfolio.module.css";
-
+import Link from "next/link";
 const lawyers = [
   {
     id: 1,
@@ -72,7 +72,7 @@ const MarketPage = () => {
             {lawyers.map((lawyer) => (
               <div key={lawyer.id} className={styles.lawyerCard} style={{ background: 'aliceblue' }}>
                 <div className={styles.cardHeader}>
-                  <img src={lawyer.image} style={{ width: '100px', height: '150px', borderRadius: '50%', objectFit: 'cover', display: 'flex', justifyContent: 'center', alignItems: 'center' }} alt={lawyer.name} />
+                  <img src={lawyer.image} style={{ width: '67px', height: '67px', borderRadius: '20%', display: 'flex', justifyContent: 'center', alignItems: 'center' }} alt={lawyer.name} />
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.lawyerName}>{lawyer.name}</h3>
@@ -80,13 +80,15 @@ const MarketPage = () => {
                   <p className={styles.lawyerDescription}>{lawyer.description}</p>
                 </div>
                 <div className={styles.cardFooter}>
-                  <button className={styles.connectButton}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.mr1}>
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    Connect
-                  </button>
+                  <Link href="./portfolio/page.tsx">
+                    <button className={styles.connectButton} >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.mr1}>
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                      Connect
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}
