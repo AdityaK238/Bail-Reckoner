@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ReactTooltip from 'react-tooltip';
+import Image from 'next/image';
 
 const stateWebsites = {
   'Andhra Pradesh': 'https://ap.gov.in/',
@@ -89,11 +90,11 @@ const IndianMap = () => {
               data-for={state}
               onClick={() => handleStateClick(state)}
             >
-              <img
+              <Image
                 src={stateImages[state]}
                 alt={state}
                 className="w-full h-48 object-cover rounded-lg cursor-pointer transition-transform transform hover:scale-105"
-              ></img>
+              ></Image>
               <ReactTooltip id={state} place="top" effect="solid">
                 {state}
               </ReactTooltip>

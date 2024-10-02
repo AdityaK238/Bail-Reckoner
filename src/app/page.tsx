@@ -1,18 +1,18 @@
 "use client";  // Ensure this line is added to mark the component as a Client Component
 
 import { Button } from "@/app/components/ui/button";
-import { Input } from "@/app/components/ui/input";
-import { BarChart3, BookOpen, Users} from "lucide-react";
+import { BarChart3, BookOpen, Users } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';  // Importing useRouter for navigation
 import { FloatingNav } from "./components/ui/floating-navbar";
+import Head from 'next/head';  // Import the Next.js Head component
+import Input from '@/app/components/ui/input';
 
 export default function LandingPage() {
   
-  const router = useRouter();  // Initialize router
-  const handleChatButtonClick = () => {
-    router.push("/ChatBot");  // Redirect to chatbot page
-  };
+   // Initialize router
+
+  // Hydration-safe check to only run the chat button logic on the client
+  
 
   const navItems = [
     { name: "FAQ", link: "/faq" },
@@ -23,12 +23,12 @@ export default function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <head>
+      <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-      </head>
+      </Head>
       <FloatingNav navItems={navItems} className="bg-white" />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-primary">
@@ -44,7 +44,7 @@ export default function LandingPage() {
               </div>
               <div className="space-x-4">
                 <Link href="/bail-overview">
-                <Button className="bg-white text-primary hover:bg-gray-100">Get Started</Button>
+                  <Button className="bg-white text-primary hover:bg-gray-100">Get Started</Button>
                 </Link>
                 <Link href="/help" passHref>
                   <Button variant="outline" className="text-white border-white hover:bg-white/10">
@@ -135,8 +135,6 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      <button onClick={handleChatButtonClick}
-        className="fixed bottom-16 right-4 bg-primary text-white p-3 rounded-full shadow-lg"><img src="chatbot.png"></img></button>
     </div>
   );
-};
+}

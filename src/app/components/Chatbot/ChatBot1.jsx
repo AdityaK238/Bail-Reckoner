@@ -6,7 +6,6 @@ import styles from "@/app/components/Chatbot/chatbot.module.css";
 const ChatBot = () => {
   const [userMessage, setUserMessage] = useState('');
   const [messagesState, setMessages] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   const handleSendMessage = async (event) => {
     event.preventDefault();

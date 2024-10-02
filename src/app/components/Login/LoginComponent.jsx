@@ -51,7 +51,7 @@ const LoginComponent = () => {
           Login
         </button>
         <div className="register-link"><br />
-          <p>Don't have an Account?</p>
+          <p>Don&apos;t have an Account?</p>
         </div>
       </form>
     </div>

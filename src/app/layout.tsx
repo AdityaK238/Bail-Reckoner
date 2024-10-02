@@ -1,11 +1,11 @@
 "use client";
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
 import { Scale } from "lucide-react";
-import { FloatingNav } from "./components/ui/floating-navbar";
 import { useState, useCallback } from "react";
+import Image from "next/image";
+import { useRouter } from 'next/navigation'; 
 
 // Import the local fonts
 const geistSans = localFont({
@@ -38,6 +38,10 @@ export default function RootLayout({
     { name: "Statistics", link: "/statistics" },
     { name: "Bail Criteria Assessment", link: "/bail-overview" },
   ];
+  const router = useRouter();
+  const handleChatButtonClick = () => {
+    router.push("/ChatBot");  // Redirect to chatbot page
+  };
 
   return (
     <html lang="en">
@@ -47,7 +51,7 @@ export default function RootLayout({
           <button 
             className="fixed bottom-16 right-4 bg-primary text-white p-3 rounded-full shadow-lg"
             aria-label="Open Chatbot">
-            <a href="http://localhost:3000/ChatBot"><img src="chatbot.png" alt="Chatbot"/></a>
+            <a href="http://localhost:3000/ChatBot"><Image src="/chatbot.png" alt="Chatbot" onClick={handleChatButtonClick} width={30} height={30}></Image></a>
           </button>
         </div>
 
