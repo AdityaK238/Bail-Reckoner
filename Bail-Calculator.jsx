@@ -2,9 +2,7 @@
 import React, { useState } from 'react';
 import styles from './Bail-calculator.module.css';
 import { ipcData } from './ipcSections';
-import dynamic from 'next/dynamic';
 
-const JsPDF = dynamic(() => import('jspdf'), { ssr: false });
 
 const BailReckoner = () => {
   const [lawType, setLawType] = useState('');
