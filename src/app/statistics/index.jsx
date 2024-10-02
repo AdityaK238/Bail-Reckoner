@@ -1,8 +1,7 @@
 "use client";
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import { Chart } from "chart.js/auto";
 import styles from "@/app/statistics/statistics.module.css"; // Ensure CSS module is applied
-import { Columns } from "lucide-react";
 
 const BailReckoner = () => {
   const chartRefs = useRef({}); // Ref to store chart instances
@@ -28,7 +27,7 @@ const BailReckoner = () => {
       { court: "Tripura", accepted: 523, rejected: 291, pending: 2263 },
       { court: "Uttarakhand", accepted: 6751, rejected: 1015, pending: 19401 },
       { court: "Orissa", accepted: 20739, rejected: 3033, pending: 149997 },
-      { court: "Gauhati", accepted: 4770, rejected: 2419, pending: 79647 }
+      { court: "Gauhati", accepted: 4770, rejected: 2419, pending: 79647 },
     ],
     yearlyTrend: [
       { month: "Jan", total: 60129 },
@@ -36,8 +35,8 @@ const BailReckoner = () => {
       { month: "Mar", total: 65000 },
       { month: "Apr", total: 63000 },
       { month: "May", total: 66000 },
-      { month: "Jun", total: 64000 }
-    ]
+      { month: "Jun", total: 64000 },
+    ],
   }), []);
 
   useEffect(() => {
@@ -46,7 +45,9 @@ const BailReckoner = () => {
     const ctx3 = document.getElementById("applicationTrendChart");
 
     // Destroy previous chart instances if they exist
-    Object.values(chartRefs.current).forEach(chart => chart?.destroy());
+    const currentCharts = { ...chartRefs.current }; // Capture current chart refs in a variable
+
+    Object.values(currentCharts).forEach(chart => chart?.destroy());
 
     // Create new charts
     if (ctx1) {
@@ -59,17 +60,17 @@ const BailReckoner = () => {
             datasets: [
               {
                 data: [bailData.accepted, bailData.rejected, bailData.pending],
-                backgroundColor: ["#4BE1AB", "#FF6B6B", "#FFC75F"]
-              }
-            ]
+                backgroundColor: ["#4BE1AB", "#FF6B6B", "#FFC75F"],
+              },
+            ],
           },
           options: {
             responsive: true,
             plugins: {
               legend: { position: "top" },
-              title: { display: true, text: "Application Status Distribution" }
-            }
-          }
+              title: { display: true, text: "Application Status Distribution" },
+            },
+          },
         });
       }
     }
@@ -84,14 +85,14 @@ const BailReckoner = () => {
             datasets: [
               { label: "Accepted", data: bailData.highCourtData.map(d => d.accepted), backgroundColor: "#4BE1AB" },
               { label: "Rejected", data: bailData.highCourtData.map(d => d.rejected), backgroundColor: "#FF6B6B" },
-              { label: "Pending/Unclear", data: bailData.highCourtData.map(d => d.pending), backgroundColor: "#FFC75F" }
-            ]
+              { label: "Pending/Unclear", data: bailData.highCourtData.map(d => d.pending), backgroundColor: "#FFC75F" },
+            ],
           },
           options: {
             responsive: true,
             scales: { x: { stacked: true }, y: { stacked: true } },
-            plugins: { title: { display: true, text: "High Court Comparison" } }
-          }
+            plugins: { title: { display: true, text: "High Court Comparison" } },
+          },
         });
       }
     }
@@ -109,107 +110,95 @@ const BailReckoner = () => {
                 data: bailData.yearlyTrend.map(d => d.total),
                 borderColor: "rgba(30, 136, 229, 0.8)",
                 fill: false,
-                tension: 0.1
-              }
-            ]
+                tension: 0.1,
+              },
+            ],
           },
           options: {
             responsive: true,
             plugins: { title: { display: true, text: "Yearly Application Trend" } },
-            scales: { y: { beginAtZero: true } }
-          }
+            scales: { y: { beginAtZero: true } },
+          },
         });
       }
     }
 
+    // Cleanup function to destroy charts on unmount
     return () => {
-      Object.values(chartRefs.current).forEach(chart => chart?.destroy());
+      Object.values(currentCharts).forEach(chart => chart?.destroy());
     };
-  }, [bailData]);
+  }, [bailData]); // Added bailData as a dependency to recreate charts when data changes
 
   return (
     <div>
       <main className={styles.container}>
         <h1>Bail Application Statistics</h1>
         <div className={styles.chartholder}>
-        <div className={styles.summaryCards}>
-          <div className={styles.card}>
-            <h3>Total Applications</h3>
-            <div className={styles.value}>10,0000</div>
-          </div>
-          <div className={styles.card}>
-            <h3>Accepted</h3>
-            <div className={styles.value}>8,000</div>
-          </div>
-          <div className={styles.card}>
-            <h3>Rejected</h3>
-            <div className={styles.value}>3,000</div>
-          </div>
-          <div className={styles.card}>
-            <h3>Pending</h3>
-            <div className={styles.value}>1,000</div>
-          </div>
-        </div>
-        <br />
-        <br />
-        <div className={styles.charts} style={{display:'grid',gridTemplateColumns: 'repeat(2, 1fr)'}}>
-          <div className={styles.chartContainer} style={{width:'600px',height:'300px',display:'flex',flexDirection:'column'}}>
-            <canvas id="applicationStatusChart"></canvas>
-          </div>
-          <div className={styles.chartContainer} style={{width:'600px',height:'300px',display:'flex',flexDirection:'column'}}>
-            <canvas id="highCourtComparisonChart"></canvas>
-          </div>
-          <div className={styles.chartContainer} style={{width:'600px',height:'300px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',padding:"2%"}}>
-            <canvas id="applicationTrendChart"></canvas>
-          </div>
-        </div>
-
-        <div className={styles.newFeatures}>
-          <div className={styles.featureCard}>
-            <h3>Case Processing Efficiency</h3>
-            <div className={styles.progressBar}>
-              <div className={styles.progress}></div>
+          <div className={styles.summaryCards}>
+            <div className={styles.card}>
+              <h3>Total Applications</h3>
+              <div className={styles.value}>{bailData.total.toLocaleString()}</div>
             </div>
-            <p>Current efficiency: 95%</p>
+            <div className={styles.card}>
+              <h3>Accepted</h3>
+              <div className={styles.value}>{bailData.accepted.toLocaleString()}</div>
+            </div>
+            <div className={styles.card}>
+              <h3>Rejected</h3>
+              <div className={styles.value}>{bailData.rejected.toLocaleString()}</div>
+            </div>
+            <div className={styles.card}>
+              <h3>Pending</h3>
+              <div className={styles.value}>{bailData.pending.toLocaleString()}</div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <div className={styles.charts} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)' }}>
+            <div className={styles.chartContainer} style={{ width: '600px', height: '300px', display: 'flex', flexDirection: 'column' }}>
+              <canvas id="applicationStatusChart"></canvas>
+            </div>
+            <div className={styles.chartContainer} style={{ width: '600px', height: '300px', display: 'flex', flexDirection: 'column' }}>
+              <canvas id="highCourtComparisonChart"></canvas>
+            </div>
+            <div className={styles.chartContainer} style={{ width: '600px', height: '300px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: "2%" }}>
+              <canvas id="applicationTrendChart"></canvas>
+            </div>
           </div>
 
-          <div className={styles.featureCard}>
-            <h3>Top Reasons for Rejection</h3>
-            <table>
-              <tbody>
-                <tr>
-                  <th>Reason</th>
-                  <th>Percentage</th>
-                </tr>
-                <tr>
-                  <td>Flight Risk</td>
-                  <td>15%</td>
-                </tr>
-                <tr>
-                  <td>Severity of Crime</td>
-                  <td>40%</td>
-                </tr>
-                <tr>
-                  <td>Prior Convictions</td>
-                  <td>25%</td>
-                </tr>
-                <tr>
-                  <td>Other</td>
-                  <td>20%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <div className={styles.newFeatures}>
+            <div className={styles.featureCard}>
+              <h3>Case Processing Efficiency</h3>
+              <div className={styles.progressBar}>
+                <div className={styles.progress} style={{ width: "95%" }}></div>
+              </div>
+              <p>Current efficiency: 95%</p>
+            </div>
 
-          <div className={styles.featureCard} style={{width:'600px',height:'300px'}}>
-            <h3>Recent Updates</h3>
-            <ul>
-              <li>New bail guideline implemented on 01/05/2024</li>
-              <li>System upgrade scheduled for 15/05/2024</li>
-              <li>Quarterly report due by 30/06/2024</li>
-            </ul>
+            <div className={styles.featureCard}>
+              <h3>Top Reasons for Rejection</h3>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Incomplete Documentation</td>
+                    <td>35%</td>
+                  </tr>
+                  <tr>
+                    <td>Failure to Appear</td>
+                    <td>25%</td>
+                  </tr>
+                  <tr>
+                    <td>Technical Issues</td>
+                    <td>15%</td>
+                  </tr>
+                  <tr>
+                    <td>Other</td>
+                    <td>25%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
         </div>
       </main>
     </div>

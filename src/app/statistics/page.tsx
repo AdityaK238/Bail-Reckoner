@@ -1,5 +1,4 @@
 'use client'
-import {useState} from 'react';
 import styles from '@/app/statistics/statistics.module.css';
 import Applications from '@/app/statistics/applications';       // Adjust the path as needed
 import AcceptanceRates from '@/app/statistics/acceptanceRates'; // Adjust the path as needed
