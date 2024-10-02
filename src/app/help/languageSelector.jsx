@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 
 const LanguageSelector = ({ onLanguageSelect }) => {
   const toggleDarkMode = () => {
@@ -115,7 +116,7 @@ const LanguageSelector = ({ onLanguageSelect }) => {
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = styles.languageItem.backgroundColor)}
                 onClick={() => onLanguageSelect(language.code)}
               >
-                <img src={language.imgSrc} alt={`${language.lang} flag`} style={styles.languageImage} />
+                <Image src={language.imgSrc} alt={`${language.lang} flag`} style={styles.languageImage}></Image>
                 <div style={styles.languageText}>{language.lang}</div>
               </div>
             ))}

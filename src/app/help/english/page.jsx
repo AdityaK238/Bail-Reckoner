@@ -49,7 +49,7 @@ const English = () => {
         <p>The Bail Calculator is the core feature of our application. Here is how to use it effectively:</p>
         <ol>
           <li>Navigate to the Bail Calculator page</li>
-          <li>Enter the defendant's personal details</li>
+          <li>Enter the defendants personal details</li>
           <li>Input the <span style={styles.tooltip}>offense details<span style={styles.tooltipText}>Include the nature of the offense, any prior convictions, and other relevant factors</span></span></li>
           <li>Add any mitigating or aggravating factors</li>
           <li>Click Calculate Bail</li>
@@ -68,7 +68,7 @@ const English = () => {
       <div id="faq" style={styles.section}>
         <h2>4. Frequently Asked Questions</h2>
         <h3>How accurate is the bail calculation?</h3>
-        <p>Our system uses advanced algorithms and up-to-date legal guidelines to provide highly accurate bail recommendations. However, it's important to note that the final decision always rests with the judge.</p>
+        <p>Our system uses advanced algorithms and up-to-date legal guidelines to provide highly accurate bail recommendations. However, its important to note that the final decision always rests with the judge.</p>
 
         <h3>Can I modify a bail calculation after it has been made?</h3>
         <p>Yes, you can modify calculations. Navigate to the case in your history and select Edit Calculation to update any information and recalculate.</p>
@@ -164,11 +164,6 @@ const styles = {
     },
   },
 
-};
-
-// Adding media queries for responsiveness
-const mediaQueries = {
- 
 };
 
 export default English;
