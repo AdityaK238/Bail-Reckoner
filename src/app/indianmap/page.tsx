@@ -1,5 +1,5 @@
 import React from 'react'
-import IndianMap from '@/app/indianmap/page';
+import IndianMap from '@/app/components/IndianMap/IndianMap';
 
 const page = () => {
   return (

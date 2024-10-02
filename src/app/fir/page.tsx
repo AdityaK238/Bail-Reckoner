@@ -1,5 +1,5 @@
 import React from 'react'
-import FIRRegistration from '@/app/fir/page';
+import FIRRegistration from '@/app/components/FIR/FIRRegisteration';
 
 const page = () => {
   return (
@@ -7,4 +7,4 @@ const page = () => {
   )
 }
 
-export default page
+export default page;
