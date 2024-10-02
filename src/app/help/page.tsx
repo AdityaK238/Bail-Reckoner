@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Use the correct import for Next.js routing
 import Hindi from "@/app/help/hindi/page";
-import kannada from "@/app/help/kannada/page";
+import Kannada from "@/app/help/kannada/page"; // Rename the import to start with a capital letter
 import English from "@/app/help/english/page";
 import LanguageSelector from "@/app/help/languageSelector";
 
@@ -16,13 +16,12 @@ const HelpPage: React.FC = () => {
     router.push(`/help/${language}`);
      // Navigate to the language-specific page
   };
-
   const renderHelpContent = () => {
     switch (selectedLanguage) {
       case 'hindi':
         return <Hindi />;
       case 'kannada':
-        return <kannada/>;
+        return <Kannada/>;
       case 'english':
         return <English />;
       default:
